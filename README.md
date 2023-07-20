@@ -1,3 +1,9 @@
+# Quick Pitch
+- A **functional** language with inspiration from Common Lisp, Clojure, Elixir, Ruby, Haskell
+- Prioritization: Correctness > **Readability** > **Extensibility** > Performance
+- **Extenable through** Zig/C
+- The language is **always available** all the time, just like Smalltalk and Lisp.
+
 # Rationale: Why yet another langauge
 
 Although there's already tons of language on the market, there isn't really a language that is suitable for writing extensible softwares, like Vim, Emacs, jut to name a few. Common Lisp was close but it's too old and it can't really leverage the ecosystem that C/C++ have well. And thus it is obsolete.
