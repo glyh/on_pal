@@ -76,8 +76,9 @@ let (a.at(0), a.at(3)) = (3, 9); // modifying the array
 // a == [3, 2, 3, 9]
 
 // Mutability:
-let counter of mut[int] = ref 0; // creates an atom just as in clojure.
+let counter of ref(int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
 counter.swap(_ + 1); // or: 
+print(f"{*counter}%n"); // dereferencing an atom we get the underlying value
 swap(counter, fn(x) x + 1 end);
 
 // Function definition: 
@@ -86,8 +87,8 @@ let sum = fn(x, y, z) {
 } of (float, float, float).to(float)
 // Or
 let sum of (float, float, float).to(float) = fn(x, y, z) {x + y + z}
-// Or 
-let sum = fn(x: float, y: float, z: float) float {x + y + z}
+// Or (we also make it public) 
+pub let sum = fn(x: float, y: float, z: float) float {x + y + z}
 
 // Or just:
 fn sum(x, y, z) { x + y + z }
