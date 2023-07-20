@@ -1,4 +1,4 @@
-# NOTE: This is a vaperware.
+# NOTE: This is a vaporware.
 
 # Quick Pitch
 - A **functional** language with inspiration from Common Lisp, Clojure, Elixir, Ruby, Haskell
