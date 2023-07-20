@@ -20,10 +20,10 @@ Here's some code that maybe of interest:
 ```
 
 # Pattern matching:
-let name :: string = "Corvo" # `let` creates a pattern matching, the semantic is similar to that of elixir
-let (x :: float, l = [y | rest] :: list(float)) = (9.0, [9.2, 10, 13]) # type annotation is optional
+let name: string = "Corvo" # `let` creates a pattern matching, the semantic is similar to that of elixir
+let (x of float, l = [y | rest] of list(float)) = (9.0, [9.2, 10, 13]) # type annotation is optional
 let average = 0.5 * (x + y)
-let (list = [first, second | rest], {uname: uname, fruit }) ([1, 2, 3, 4], {uname: "Linux", fruit: "Apple"}) 
+let (list = [first, second | rest], (uname: uname, fruit)) ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple")) 
 # list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
 [a, a] = [1, 1] # only binds if the two values are the same
@@ -51,9 +51,10 @@ let formatted = ~f"1 + 1 = {1 + 1}%n" # this is a f-string
 [:abc => "foo", :def => "bar"]
 # just as in elixir, and yes we have keywords
 :abc
-(a: "ads", b: 1) # we have heterogeneous ungroable named tuple(i.e. struct)
+(a: "ads", b: 1, "hell" => :yeah) # we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4] # we have homogeneous growable list 
 (1, "a", true, 4) # we have heterogenious ungrowable tuple
+# I think it's possible to unify them, just like in Lua.   
 ~set[1, 2, 3, 4] # and we have set
 () # we have unit i.e. empty tuple
 (true, false) # we have booleans
@@ -67,12 +68,12 @@ let (a.at(0), a.at(3)) = (3, 9) # modifying the array
 # a == [3, 2, 3, 9]
 
 # Mutability:
-let counter :: mut[int] = ref 0 # creates an atom just as in clojure.
+let counter of mut[int] = ref 0 # creates an atom just as in clojure.
 counter.swap(_ + 1) # or: 
 swap(counter, fn(x) x + 1 end) 
 
 # Function definition: 
-let sum = fn(x, y, z) :: float -> float -> float -> float
+let sum = fn(x, y, z) of (float, float, float) -> float
   x + y + z
 end
 # Or just:
@@ -84,8 +85,11 @@ sum(4, z = 3, y = 1) # yields 8, note that positional arguments must appear befo
 4.sum(3, 1) # yields 8
 
 # Partial application
-4.sum(3) :: (float -> float)
+4.sum(3) of (float -> float)
 4.sum(3)(1) # yields 8
+
+# note that due to partial application, the following is true:
+(float, float, float) -> float == (float, float) -> float -> float == float -> float -> float -> float
 
 # Modules 
 abc:def() # a qualified call
