@@ -26,9 +26,10 @@ lang {
 }
 
 // Pattern matching:
-let name: string = "Corvo"; // `let` creates a pattern matching, the semantic is similar to that of elixir
-let (x of float, l = [y | rest] of list(float)) = (9.0, [9.2, 10, 13]); // type annotation is optional
-let average = 0.5 * (x + y);
+let name of string = "Corvo"; // `let` creates a pattern matching, the semantic is similar to that of elixir
+let (x of float, l = [y | rest] of list(float)) = (9.0, [9.2, 10, 13]);
+let average = 0.5 * (x + y); // type annotation is optional
+let average_works_as_well = 0.5 * (x + y) of float; // type annotation is optional
 let (list = [first, second | rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
 // list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
@@ -81,7 +82,7 @@ let counter of ref(int) = &0; // creates an atom just as in clojure. we just use
 counter.swap(_ + 1); // BTW here we're using something similar to scala's anonymous function
 // Or: 
 print(f"{*counter}%n"); // dereferencing an atom we get the underlying value
-swap(counter, fn(x) x + 1 end);
+swap(counter, fn(x){x + 1});
 
 // Function definition: 
 let sum = fn(x, y, z) {
@@ -124,4 +125,3 @@ if let a = b {
   "a" ++ "b"
 }
 ```
-
