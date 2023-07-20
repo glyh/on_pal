@@ -17,3 +17,4 @@
 ### Against Rust
 - Too hard to work with.
 - VM is not safe inherently. We have to write a bunch of unsafe code, and we're not benefiting a lot from rust by doing that.
+- I expect tight integration with C ecosystem and Zig host, rust is a no-go, because it will complicate my work with its own type system.
