@@ -11,6 +11,7 @@ Here's a list of language I found pretty readable to human:
 - [Lua](https://www.lua.org/)
 - [Python](https://www.python.org/)
 - [Groovy](https://groovy-lang.org/)
+- [Scala](https://www.scala-lang.org/)
 - [Powershell](https://learn.microsoft.com/en-us/powershell/)
 
 ## A taste of Pal
@@ -77,21 +78,22 @@ let (a.at(0), a.at(3)) = (3, 9); // modifying the array
 
 // Mutability:
 let counter of ref(int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
-counter.swap(_ + 1); // or: 
+counter.swap(_ + 1); // BTW here we're using something similar to scala's anonymous function
+// Or: 
 print(f"{*counter}%n"); // dereferencing an atom we get the underlying value
 swap(counter, fn(x) x + 1 end);
 
 // Function definition: 
 let sum = fn(x, y, z) {
   x + y + z
-} of (float, float, float).to(float)
+} of (float, float, float).to(float);
 // Or
-let sum of (float, float, float).to(float) = fn(x, y, z) {x + y + z}
+let sum of (float, float, float).to(float) = fn(x, y, z) {x + y + z};
 // Or (we also make it public) 
-pub let sum = fn(x: float, y: float, z: float) float {x + y + z}
+pub let sum = fn(x: float, y: float, z: float) float {x + y + z};
 
 // Or just:
-fn sum(x, y, z) { x + y + z }
+fn sum(x, y, z) { x + y + z };
 
 // Calling a function
 sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear before keyword arguments
@@ -99,8 +101,8 @@ sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear befo
 4.sum(3, 1); // yields 8
 
 // Partial application
-4.sum(3) of float.to(float)
-4.sum(3)(1) // yields 8
+4.sum(3) of float.to(float);
+4.sum(3)(1); // yields 8
 
 // note that due to partial application, the following is true:
 (float, float, float).to(float) = (float, float).to(float.to(float)) = float.to(float.to(float.to(float)))
