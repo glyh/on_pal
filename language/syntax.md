@@ -80,7 +80,7 @@ end
 fn sum(x, y, z) x + y + z end
 
 # Calling a function
-sum(4, z = 3, y = 1) # yields 8, note that positional arguments must appear before keyword arguments
+sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before keyword arguments
 # We follow UFCS(Universal Function Call Syntax)
 4.sum(3, 1) # yields 8
 
