@@ -9,12 +9,12 @@
 - We can reuse HVM for most part as backend. I personally prefer Clojure for frontend.
 
 ## Real compiler
-### Choice of langauge: Zig
+### Choice of langauge: [Zig](https://ziglang.org/)
 - low level implies good enough performance.
 - even more portable than C, and easy integration with C library.
 - comptime can help me keep code clean.
 
-### Against Rust
+### Against [Rust](https://www.rust-lang.org/)
 - Too hard to work with.
 - VM is not safe inherently. We have to write a bunch of unsafe code, and we're not benefiting a lot from rust by doing that.
 - I expect tight integration with C ecosystem and Zig host, rust is a no-go, because it will complicate my work with its own type system.

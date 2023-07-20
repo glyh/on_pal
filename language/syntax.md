@@ -1,5 +1,5 @@
 ## Classification
-Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to Elixir(which is a functional BEAM lanaguage with ruby-like syntax). 
+Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to [Elixir](https://elixir-lang.org/). 
 
 ## A taste of Pal
 
