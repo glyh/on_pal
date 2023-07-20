@@ -36,10 +36,10 @@ a = 3
 # Strings
 
 let str = 
-  #| This is 
-    #| a series
-      #| of multiline string
-        #| Note that it is indentation insignificant
+  ~| This is 
+    ~| a series
+      ~| of multiline string
+        ~| Note that it is indentation insignificant
 
 let formatted = ~f"1 + 1 = {1 + 1}%n" # this is a f-string
 
