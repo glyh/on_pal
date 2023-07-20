@@ -7,7 +7,7 @@
 - The language is **always available**, just like Smalltalk and Lisp
 - Type system that **doesn't get in your way**
 - Parallelization for **free**
-- Inspired by [Haskell](https://www.haskell.org/), [Common Lisp](https://lisp-lang.org/), [Racket](https://racket-lang.org/), [Clojure](https://clojure.org/), [Elixir](https://elixir-lang.org/), [Ruby](https://www.ruby-lang.org/), 
+- Inspired by [Haskell](https://www.haskell.org/), [Common Lisp](https://lisp-lang.org/), [Racket](https://racket-lang.org/), [Clojure](https://clojure.org/), [Elixir](https://elixir-lang.org/), [Rust](https://www.rust-lang.org/), 
 
 ## Rationale: Why yet another langauge
 

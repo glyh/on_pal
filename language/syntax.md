@@ -1,6 +1,5 @@
 ## Classification
-Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to [Elixir](https://elixir-lang.org/). 
-
+Pal's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
 
 ## Note on syntax
 - I don't quite like the necessity that we have to use let for every binding. I don't know if Honu allows this. I need more investigation.
