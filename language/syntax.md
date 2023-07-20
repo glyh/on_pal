@@ -2,6 +2,9 @@
 Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to [Elixir](https://elixir-lang.org/). 
 
 
+## Note on syntax
+- I don't quite like the necessity that we have to use let for every binding. I don't know if Honu allows this. I need more investigation.
+
 ## List of readable languages
 
 Here's a list of language I found pretty readable to human:
@@ -80,6 +83,8 @@ let (a.at(0), a.at(3)) = (3, 9); // modifying the array
 // Mutability:
 let counter of ref(int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
 counter.swap(_ + 1); // BTW here we're using something similar to scala's anonymous function
+// I need some tricks in the compiler to make this compile as well. Something come to mind: haskell's do notation.
+let counter = counter + 1
 // Or: 
 print(f"{*counter}%n"); // dereferencing an atom we get the underlying value
 swap(counter, fn(x){x + 1});
