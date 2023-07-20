@@ -5,10 +5,13 @@ Pal's surface syntax is strongly influenced by Ruby, however given the fact it's
 ## List of readable languages
 
 Here's a list of language I found pretty readable to human:
+- [Applescript](https://macosxautomation.com/applescript/)
 - [Ruby](https://www.ruby-lang.org/)
+- [Basic](https://en.wikipedia.org/wiki/BASIC)
 - [Lua](https://www.lua.org/)
 - [Python](https://www.python.org/)
 - [Groovy](https://groovy-lang.org/)
+- [Powershell](https://learn.microsoft.com/en-us/powershell/)
 
 ## A taste of Pal
 
