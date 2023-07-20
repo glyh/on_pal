@@ -45,6 +45,7 @@ let formatted = ~f"1 + 1 = {1 + 1}%n" # this is a f-string
 ~set[1, 2, 3, 4] # and we have set
 () # we have unit i.e. empty tuple
 (true, false) # we have booleans
+# typed tuple should be playable at runtime via something like milessabin/shapeless
 [1, 2, 3, 4].at(0) # accessing array 
 
 # Bindable pattern
