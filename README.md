@@ -1,3 +1,5 @@
+# NOTE: This is a vaperware.
+
 # Quick Pitch
 - A **functional** language with inspiration from Common Lisp, Clojure, Elixir, Ruby, Haskell
 - Prioritization: Correctness > **Readability** > **Extensibility** > Performance
