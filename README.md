@@ -3,6 +3,7 @@
 - Prioritization: Correctness > **Readability** > **Extensibility** > Performance
 - **Extenable through** Zig/C
 - The language is **always available** all the time, just like Smalltalk and Lisp.
+- Type system that doesn't get in your way, with develop experience as close to dynamically typed as possible.
 
 # Rationale: Why yet another langauge
 
