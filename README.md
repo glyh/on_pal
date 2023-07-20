@@ -1,11 +1,13 @@
 # NOTE: This is a vaporware.
 
 # Quick Pitch
-- A **functional** language with inspiration from Common Lisp, Clojure, Elixir, Ruby, Haskell
+- A **functional** language
 - Prioritization: Correctness > **Readability** > **Extensibility** > Performance
 - **Extenable through** Zig/C
-- The language is **always available** all the time, just like Smalltalk and Lisp.
-- Type system that doesn't get in your way, with develop experience as close to dynamically typed as possible.
+- The language is **always available**, just like Smalltalk and Lisp
+- Type system that **doesn't get in your way**
+- Parallelization for **free**
+- Inspired by Common Lisp, Clojure, Elixir, Ruby, Haskell
 
 # Rationale: Why yet another langauge
 
