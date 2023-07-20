@@ -7,7 +7,7 @@
 - The language is **always available**, just like Smalltalk and Lisp
 - Type system that **doesn't get in your way**
 - Parallelization for **free**
-- Inspired by Common Lisp, Clojure, Elixir, Ruby, Haskell
+- Inspired by Common Lisp, Racket, Clojure, Elixir, Ruby, Haskell
 
 ## Rationale: Why yet another langauge
 
