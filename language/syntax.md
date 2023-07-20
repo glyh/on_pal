@@ -75,7 +75,7 @@ let formatted = ~f"1 + 1 = {1 + 1}%n"; // this is a f-string
 [1, 2, 3, 4].at(0); // accessing array 
 
 // Bindable pattern
-// This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter)
+// This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter) and C#'s LINQ
 a = [1, 2, 3, 4];
 let (a.at(0), a.at(3)) = (3, 9); // modifying the array
 // a == [3, 2, 3, 9]
