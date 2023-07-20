@@ -1,7 +1,7 @@
-# Classification
+## Classification
 Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to Elixir(which is a functional BEAM lanaguage with ruby-like syntax). 
 
-# A taste of Pal
+## A taste of Pal
 
 Here's some code that maybe of interest: 
 
@@ -92,13 +92,3 @@ end
 
 ```
 
-# Macros
-
-I want this language to be extensible, so I decide to implement the two:
-
-1. read macro like in commmon lisp. comments, sigils should be possible to implement 
-with this system. read macros emit tokens. I call this sigil because it looks like sigil in elixir.
-e.g. ~s is the splice read macro, it converts the collection to a list and generate a sequence of tokens
-~r is the regex read macro. One of the challenge is that exposing both lexer and parser to user seems hard.
-
-2. macro like in honu(https://dl.acm.org/doi/10.1145/2371401.2371420). macro emits syntax objects.
