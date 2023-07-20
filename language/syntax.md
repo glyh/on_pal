@@ -57,11 +57,11 @@ let formatted = ~f"1 + 1 = {1 + 1}%n" # this is a f-string
 ~set[1, 2, 3, 4] # and we have set
 () # we have unit i.e. empty tuple
 (true, false) # we have booleans
-# typed tuple should be playable at runtime via something like milessabin/shapeless
+# typed tuple should be playable at runtime via something like [milessabin/shapeless](https://github.com/milessabin/shapeless)
 [1, 2, 3, 4].at(0) # accessing array 
 
 # Bindable pattern
-# This is inspired by redplanetlabs/specter
+# This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter)
 a = [1, 2, 3, 4]
 let (a.at(0), a.at(3)) = (3, 9) # modifying the array
 # a == [3, 2, 3, 9]
