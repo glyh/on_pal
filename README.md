@@ -2,7 +2,7 @@
 
 ## Quick Pitch
 - A **lazy** **statically-typed** **functional** language
-- Prioritization: Correctness > **Readability** > **Extensibility** > Performance
+- Prioritization: Correctness > **Readability** > **Extensibility** > Performance >> Performance Predictability
 - **Extenable through** Zig/C
 - The language is **always available**, just like Smalltalk and Lisp
 - Type system that **doesn't get in your way**
