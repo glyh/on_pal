@@ -11,7 +11,7 @@
 
 ## Rationale: Why yet another langauge
 
-Although there's already tons of language on the market, there isn't really a language that is suitable for writing extensible softwares, like Vim, Emacs, jut to name a few. Common Lisp was close but it's too old and it can't really leverage the ecosystem that C/C++ have well. And thus it is obsolete.
+Although there's already tons of language on the market, there isn't really a language that is suitable for writing extensible softwares, like Vim, Emacs, just to name a few. Common Lisp was close but it's too old and it can't really leverage the ecosystem that C/C++ have well. And thus it is obsolete.
 
 You can definitely argue that is not the language itself, but the architecture of your softwares that matters. Then all managed code should be written in plain old java because language doesn't matter.
 
