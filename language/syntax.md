@@ -1,6 +1,15 @@
 ## Classification
 Pal's surface syntax is strongly influenced by Ruby, however given the fact it's a functional language. It actually looks more similar to [Elixir](https://elixir-lang.org/). 
 
+
+## List of readable languages
+
+Here's a list of language I found pretty readable to human:
+- [Ruby](https://www.ruby-lang.org/)
+- [Lua](https://www.lua.org/)
+- [Python](https://www.python.org/)
+- [Groovy](https://groovy-lang.org/)
+
 ## A taste of Pal
 
 Here's some code that maybe of interest: 
