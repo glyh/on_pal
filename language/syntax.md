@@ -18,6 +18,11 @@ Here's a list of language I found pretty readable to human:
 Here's some code that maybe of interest: 
 
 ```
+# Specify the dialect information for this source file, this is similar to racket's #lang tag
+lang do
+  use pattern # allow pattern language
+  use multline_string
+end
 
 # Pattern matching:
 let name: string = "Corvo" # `let` creates a pattern matching, the semantic is similar to that of elixir
