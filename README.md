@@ -1,7 +1,7 @@
 ## NOTE: This is a vaporware.
 
 ## Quick Pitch
-- A **functional** language
+- A **lazy** **statically-typed** **functional** language
 - Prioritization: Correctness > **Readability** > **Extensibility** > Performance
 - **Extenable through** Zig/C
 - The language is **always available**, just like Smalltalk and Lisp
