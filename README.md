@@ -21,4 +21,4 @@ Misson of pal is really to serve the end user and the developer, and we expect t
 
 ## When?
 
-While, I'm a newbie in PL-design so expect at least 5 years.
+Well, I'm a newbie in PL-design so expect at least 5 years.
