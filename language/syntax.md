@@ -151,7 +151,8 @@ if a =? b {
 
 // We have control structures
 // they have an imperative interface but can be used functionally
-// I may need to take a look at common lisp, scala, F# and Hy lang to decide how to desig them precisely.
+// I may need to take a look at Common Lisp, Scala, Zig, F# and Hy lang to decide how to desig them precisely.
+// here the syntax is similar to what we have in zig.
 i = {
   break 1;
 }
