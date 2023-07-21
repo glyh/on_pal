@@ -14,7 +14,6 @@ Here's a list of language I found pretty readable to human:
 - With basic-like syntax
   - [Ruby](https://www.ruby-lang.org/)
   - [Lua](https://www.lua.org/)
-  - [Python](https://www.python.org/)
   - [Applescript](https://macosxautomation.com/applescript/)
   - [Basic](https://en.wikipedia.org/wiki/BASIC)
 - With sh-like syntax
