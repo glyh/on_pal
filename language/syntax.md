@@ -28,7 +28,7 @@ Here's some code that maybe of interest:
 // Specify the dialect information for this source file, this is similar to racket's #lang tag
 lang {
   use multline_string;
-}
+};
 
 // Pattern matching:
 name :: string = "Corvo"; // pattern matching, the semantic is similar to that of elixir
@@ -104,6 +104,7 @@ pub let sum = fn(x: float, y: float, z: float) float {x + y + z};
 fn sum(x, y, z) { x + y + z };
 
 // vararg version of sum, along with pattern matching
+// note that semicolon maybe omitted here.
 fn sum(...) {
   match ... {
     [] -> 0
