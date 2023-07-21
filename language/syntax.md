@@ -112,6 +112,10 @@ fn sum(...) {
   match ... {
     [] -> 0
     [first ...]  -> apply(sum, ...) + first
+    // note the difference:
+    // ... = (1, 2, 3)
+    // (1 ...) = (1, 2, 3)
+    // (1, ...) = (1, (2,3))
   }
 }
 
