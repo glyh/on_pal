@@ -159,7 +159,7 @@ fn ok?(r: Result(_, _)) Bool {
 }
 
 // or it can mean an anonymous function in expression:
-_.sum(3, 4) :: (float, ...).to(float)
+_.sum(3, 4) :: (float ...).to(float)
 // TODO: design a workable type signature for varargs
 
 // The following if-expression has type int | string
