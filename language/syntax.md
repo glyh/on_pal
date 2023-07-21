@@ -111,7 +111,7 @@ fn sum(x, y, z) { x + y + z }
 fn sum(...) {
   match ... {
     [] -> 0
-    [first ...]  -> apply(sum, rest) + first
+    [first ...]  -> apply(sum, ...) + first
   }
 }
 
