@@ -56,7 +56,7 @@ s =
         \\ Note that it is indentation insignificant
  ;
 
-formatted = ~f"1 + 1 = {1 + 1}%n"; // this is a f-string
+formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 
 // Built-in containers
 
@@ -101,16 +101,24 @@ let sum :: (float, float, float).to(float) = fn(x, y, z) {x + y + z};
 pub let sum = fn(x: float, y: float, z: float) float {x + y + z};
 
 // Or just:
-fn sum(x, y, z) { x + y + z };
+fn sum(x, y, z) { x + y + z }
 
 // vararg version of sum, along with pattern matching
 // note that semicolon maybe omitted here.
+// `...`, just like `_` and `?abc` are special variables
+// `...` is special in that it's always bound as vararg when appearing in a function's declartion.
 fn sum(...) {
   match ... {
     [] -> 0
     [first, ...] -> apply(sum, ...)
   }
 }
+
+// `_` discard the values 
+[_, ...] = [1, 2, 3, 4] // ... =? [2, 3, 4]
+
+// `?abc` requires compiler to query the type of the hole
+?abc = 1 // compiler will yield: ?abc :: int 
 
 // Calling a function
 sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear before keyword arguments
@@ -140,4 +148,12 @@ if a =? b {
 } else {
   "a" ++ "b"
 }
+
+// We have control structures
+// they have an imperative interface but can be used functionally
+// I may need to take a look at common lisp, scala, F# and Hy lang to decide how to desig them precisely.
+i = {
+  break 1;
+}
+
 ```
