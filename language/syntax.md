@@ -115,7 +115,7 @@ fn sum(...) {
 }
 
 // `_` discard the values 
-[_, ...] = [1, 2, 3, 4] // ... =? [2, 3, 4]
+[_, ...] = [1, 2, 3, 4] // ... = [2, 3, 4]
 
 // `?abc` requires compiler to query the type of the hole
 ?abc = 1 // compiler will yield: ?abc :: int 
@@ -140,8 +140,9 @@ abc:def(); // a qualified call
 // Types
 
 // The following if-expression has type int | string
-if a =? b {
-  // pattern matches!
+if { a = b = c }.ok? {
+  // pattern matches! 
+  // you can call a function without parens! (only works for dot notation)
   3 + 4
 } else if c == d {
   9 * 8
