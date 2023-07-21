@@ -36,3 +36,6 @@ e.g. ~s is the splice read macro, it converts the collection to a list and gener
 ## Functional
 
 many interesting ideas in this area, I need to take some look.
+
+## Data oriented error handling
+I need to check [how functional programming achieves no runtime exceptions](https://softwareengineering.stackexchange.com/questions/420872/how-functional-programming-achieves-no-runtime-exceptions) and [elm error handling](https://guide.elm-lang.org/error_handling/)
