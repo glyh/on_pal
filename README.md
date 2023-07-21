@@ -5,7 +5,7 @@
 - Prioritization: Correctness > **Readability** > **Extensibility** > Performance > Performance Predictability
 - **Tight-integration** with [Zig](https://ziglang.org/)/C
 - The language is **always available**, just like Smalltalk and Lisp
-- Type system that **doesn't get in your way**
+- Type system that **doesn't get in your way** while being **flexible enough**
 - Parallelization for **free**
 - Inspired by [Haskell](https://www.haskell.org/), [Common Lisp](https://lisp-lang.org/), [Racket](https://racket-lang.org/), [Clojure](https://clojure.org/), [Elixir](https://elixir-lang.org/), [Rust](https://www.rust-lang.org/), 
 
