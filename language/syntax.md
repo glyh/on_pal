@@ -150,12 +150,17 @@ abc:def(); // a qualified call
 // Types
 
 // `ok?` is defined as below:
+// _ means we don't care the thing within in pattern matching
 fn ok?(r: Result(_, _)) Bool {
   match r {
     Ok(_) -> true
     Err(_) -> false
   }
 }
+
+// or it can mean an anonymous function in expression:
+_.sum(3, 4) :: (float, ...).to(float)
+// TODO: design a workable type signature for varargs
 
 // The following if-expression has type int | string
 if { a = b = c }.ok? {
