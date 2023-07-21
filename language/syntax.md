@@ -131,7 +131,7 @@ abc:def(); // a qualified call
 // Types
 
 // The following if-expression has type int | string
-if let a = b {
+if a =? b {
   // pattern matches!
   3 + 4
 } else if c == d {
