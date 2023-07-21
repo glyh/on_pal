@@ -22,3 +22,7 @@ Misson of pal is really to serve the end user and the developer, and we expect t
 ## When?
 
 Well, I'm a newbie in PL-design so expect at least 5 years.
+
+## How can I participate?
+
+I am more than willing to hear that you are interested in the design phase of Pal language :) Feel free to open an issue and tell me what I can improve on the language!
