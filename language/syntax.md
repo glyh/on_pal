@@ -7,14 +7,18 @@ Pal's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
 ## List of readable languages
 
 Here's a list of language I found pretty readable to human:
-- [Applescript](https://macosxautomation.com/applescript/)
-- [Ruby](https://www.ruby-lang.org/)
-- [Basic](https://en.wikipedia.org/wiki/BASIC)
-- [Lua](https://www.lua.org/)
-- [Python](https://www.python.org/)
-- [Groovy](https://groovy-lang.org/)
-- [Scala](https://www.scala-lang.org/)
-- [Powershell](https://learn.microsoft.com/en-us/powershell/)
+- With algol-like syntax
+  - [Zig](https://ziglang.org/)
+  - [Scala](https://www.scala-lang.org/)
+  - [Groovy](https://groovy-lang.org/)
+- With basic-like syntax
+  - [Ruby](https://www.ruby-lang.org/)
+  - [Lua](https://www.lua.org/)
+  - [Python](https://www.python.org/)
+  - [Applescript](https://macosxautomation.com/applescript/)
+  - [Basic](https://en.wikipedia.org/wiki/BASIC)
+- With sh-like syntax
+  - [Powershell](https://learn.microsoft.com/en-us/powershell/)
 
 ## A taste of Pal
 
