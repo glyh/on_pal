@@ -62,11 +62,11 @@ formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 // Brackets denote homongenious, while braces denote heterogeneous
 [abc: "foo", def: "bar"]; // we have growable homongeneous map, borrowed from elixir
 // it should be note that, this is just the short form for:
-[:abc => "foo", :def => "bar"];
+[:abc -> "foo", :def -> "bar"];
 // just as in elixir, and yes we have atoms like elixir(or keyword in clojure)
 :abc;
-(a: "ads", b: 1, "hell" => :yeah) 
-:: Tuple(a: Str, b: Int, "hell" => Atom)
+(a: "ads", b: 1, "hell" -> :yeah) 
+:: Tuple(a: Str, b: Int, "hell" -> Atom)
 ; // we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4]; // we have homogeneous growable list 
 (1, "a", true, 4); // we have heterogenious ungrowable tuple
