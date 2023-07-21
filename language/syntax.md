@@ -113,7 +113,7 @@ fn sum(...) {
     [] -> 0
     [first ...]  -> apply(sum, ...) + first
     // note the difference:
-    // ... = (1, 2, 3)
+    // say we have ... = (1, 2, 3)
     // (1 ...) = (1, 2, 3)
     // (1, ...) = (1, (2,3))
   }
@@ -124,6 +124,9 @@ fn sum(...) {
 
 // `?abc` requires compiler to query the type of the hole
 ?abc = 1 // compiler will yield: ?abc :: int 
+
+// the compiler prevents read from `_` and `?abc` 
+// the compiler prevents write to `...`
 
 // Calling a function
 sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear before keyword arguments
