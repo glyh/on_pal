@@ -108,6 +108,8 @@ fn sum(x, y, z) { x + y + z }
 // vararg version of sum, along with pattern matching
 // note that semicolon maybe omitted here.
 // `...` is the shorthand for `.. ...`, its value depends on the context
+// if `...` is inside a pattern, it means `.. ...`
+// o.w. it's just a binded value
 fn sum(...) {
   match ... {
     [] -> 0
