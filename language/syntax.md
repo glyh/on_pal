@@ -31,7 +31,7 @@ lang {
 };
 
 // Pattern matching:
-name :: string = "Corvo"; // pattern matching, the semantic is similar to that of elixir
+name :: str = "Corvo"; // pattern matching, the semantic is similar to that of elixir
 (x :: float, l = [y | rest] :: list(float)) = (9.0, [9.2, 10, 13]);
 average = 0.5 * (x + y); // type annotation is optional
 average_works_as_well = 0.5 * (x + y) :: float; // type annotation is optional
@@ -66,7 +66,9 @@ formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 [:abc => "foo", :def => "bar"];
 // just as in elixir, and yes we have keywords
 :abc;
-(a: "ads", b: 1, "hell" => :yeah); // we have heterogeneous ungroable named tuple(i.e. struct)
+(a: "ads", b: 1, "hell" => :yeah) 
+:: tuple(a: str, b: int, "hell" => keyword)
+; // we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4]; // we have homogeneous growable list 
 (1, "a", true, 4); // we have heterogenious ungrowable tuple
 // I think it's possible to unify them, just like in Lua.   
