@@ -32,10 +32,10 @@ lang {
 
 // Pattern matching:
 name :: str = "Corvo"; // pattern matching, the semantic is similar to that of elixir
-(x :: float, l = [y | rest] :: list(float)) = (9.0, [9.2, 10, 13]);
+(x :: float, l = [y .. rest] :: list(float)) = (9.0, [9.2, 10, 13]);
 average = 0.5 * (x + y); // type annotation is optional
 average_works_as_well = 0.5 * (x + y) :: float; // type annotation is optional
-(list = [first, second | rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
+(list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
 // list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
 [a, a] = [1, 1]; // only binds if the two values are the same
@@ -107,17 +107,16 @@ fn sum(x, y, z) { x + y + z }
 
 // vararg version of sum, along with pattern matching
 // note that semicolon maybe omitted here.
-// `...`, just like `_` and `?abc` are special variables
-// `...` is special in that it's always bound as vararg when appearing in a function's declartion.
+// `...` is the shorthand for `.. ...`, its value depends on the context
 fn sum(...) {
   match ... {
     [] -> 0
-    [first, ...] -> apply(sum, ...)
+    [first ...]  -> apply(sum, rest) + first
   }
 }
 
 // `_` discard the values 
-[_, ...] = [1, 2, 3, 4] // ... = [2, 3, 4]
+[_ .. rest] = [1, 2, 3, 4] // rest = [2, 3, 4]
 
 // `?abc` requires compiler to query the type of the hole
 ?abc = 1 // compiler will yield: ?abc :: int 
