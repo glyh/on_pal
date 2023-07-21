@@ -1,9 +1,6 @@
 ## Classification
 Pal's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
 
-## Note on syntax
-- I don't quite like the necessity that we have to use `let` for every binding. I don't know if Honu allows this. I need more investigation. I may need to revise the syntax.
-
 ## List of readable languages
 
 Here's a list of language I found pretty readable to human:
@@ -37,9 +34,9 @@ average_works_as_well = 0.5 * (x + y) :: Float; // type annotation is optional
 (list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
 // list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
-[a, a] = [1, 1]; // only binds if the two values are the same
+[a, a] = [1, 1]; // only binds if the two values are the same, just like in Elixir
 a = 3;
-^a = 3; // only binds if the rhs matches the original value of lhs
+^a = 3; // only binds if the rhs matches the original value of lhs, just like in Elixir
 (a, a) = (1, 2); // this will fail
 
 // if you want to return the value instead of dropping it, leave the comma just as in rust
@@ -53,14 +50,15 @@ s =
     \\ a series
       \\ of multiline string
         \\ Note that it is indentation insignificant
- ;
+ ; // And I borrow this from Zig
 
 formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
+// in general, if you see a `~` it implies that the following is a sigil(concept borrowed from elixir).
 
 // Built-in containers
 
 // Brackets denote homongenious, while braces denote heterogeneous
-[abc: "foo", def: "bar"]; // we have growable homongeneous map, borrowed from elixir
+[abc: "foo", def: "bar"]; // we have growable homongeneous map
 // it should be note that, this is just the short form for:
 [:abc -> "foo", :def -> "bar"];
 // just as in elixir, and yes we have atoms like elixir(or keyword in clojure)
@@ -70,36 +68,34 @@ formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 ; // we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4]; // we have homogeneous growable list 
 (1, "a", true, 4); // we have heterogenious ungrowable tuple
-// I think it's possible to unify them, just like in Lua.   
 ~set[1, 2, 3, 4]; // and we have set
 (); // we have unit i.e. empty tuple
 (true, false); // we have booleans
 // typed tuple should be playable at runtime via something like [milessabin/shapeless](https://github.com/milessabin/shapeless)
 [1, 2, 3, 4].at(0); // accessing array 
 
-// Bindable pattern
-// This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter) and C#'s LINQ
+// Bindable pattern(setter)
+// This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter)
 a = [1, 2, 3, 4];
-let (a.at(0), a.at(3)) = (3, 9); // modifying the array
+(a.at(0), a.at(3)) = (3, 9); // modifying the array
 // a == [3, 2, 3, 9]
 
 // Mutability:
 counter :: Ref(Int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
 counter.swap(_ + 1); // BTW here we're using something similar to scala's anonymous function
-// I need some tricks in the compiler to make this compile as well. Something come to mind: haskell's do notation.
-let counter = counter + 1
+*counter = *counter + 1
 // Or: 
-print(f"{*counter}%n"); // dereferencing an atom we get the underlying value
+print(f"{*counter}\n"); // dereferencing an atom we get the underlying value
 swap(counter, fn(x){x + 1});
 
 // Function definition: 
-let sum = fn(x, y, z) {
+sum = fn(x, y, z) {
   x + y + z
 } :: (Float, Float, Float).To(Float);
 // or
-let sum :: (Float, Float, Float).To(Float) = fn(x, y, z) {x + y + z};
+sum :: (Float, Float, Float).To(Float) = fn(x, y, z) {x + y + z};
 // or (we also make it public) 
-pub let sum = fn(x: float, y: float, z: float) float {x + y + z};
+pub sum = fn(x: float, y: float, z: float) float {x + y + z};
 
 // or just:
 fn sum(x, y, z) { x + y + z }
