@@ -51,6 +51,13 @@ a = 3
 
 # Basic Types
 
+# Numbers
+123
+123_456_789
+1e3 # this can be both int and float
+0x123 # radix 16
+0o123 # radix 8
+
 # Strings
 
 wow = "string"
