@@ -179,4 +179,10 @@ i = {
   break 1;
 }
 
+// abusing UFCS
+
+//ranges
+1.up_to(10) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1.up_to(10).step(3) // [1, 4, 7]
+1.through(10).step(3) // [1, 4, 7, 10]
 ```
