@@ -100,6 +100,12 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 a = [1, 2, 3, 4]
 (a.at(0), a.at(3)) = (3, 9) # modifying the array
 # a == [3, 2, 3, 9]
+
+if True: a.at(0) else: a.at(1) = 7
+# or
+a.at(if True: 0 else: 1) = 7
+# a = [7, 2, 3, 9], BTW just becuz you can write them doesn't mean you should lol
+
 # Note that this is not mutability, it's just rebinding a to a new array
 
 # Mutability:
