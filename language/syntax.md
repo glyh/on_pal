@@ -67,10 +67,10 @@ formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 :: Tuple(a: Str, b: Int, "hell" -> Atom)
 ; // we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4]; // we have homogeneous growable list 
-(1, "a", true, 4); // we have heterogenious ungrowable tuple
+(1, "a", True, 4); // we have heterogenious ungrowable tuple
 ~set[1, 2, 3, 4]; // and we have set
 (); // we have unit i.e. empty tuple
-(true, false); // we have booleans
+(True, False); // we have booleans
 // typed tuple should be playable at runtime via something like [milessabin/shapeless](https://github.com/milessabin/shapeless)
 [1, 2, 3, 4].at(0); // accessing array 
 
@@ -94,7 +94,7 @@ sum = fn(x, y, z) {
 } :: (Float, Float, Float).To(Float);
 // or
 sum :: (Float, Float, Float).To(Float) = fn(x, y, z) {x + y + z};
-// or (we also make it public) 
+// or (we also make it public in this case) 
 pub sum = fn(x: float, y: float, z: float) float {x + y + z};
 
 // or just:
@@ -137,7 +137,7 @@ sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear befo
 4.sum(3) :: Float.To(Float);
 4.sum(3)(1); // yields 8
 
-// note that due to partial application, the following is true:
+// note that due to partial application, the following is True:
 (float, float, float).to(float) = (float, float).to(float.to(float)) = float.to(float.to(float.to(float)))
 
 // Modules are just heterogenious maps
@@ -151,8 +151,8 @@ abc:def(); // a qualified call
 // _ means we don't care the thing within in pattern matching
 fn ok?(r: Result(_, _)) Bool {
   match r {
-    Ok(_) -> true
-    Err(_) -> false
+    Ok(_) -> True
+    Err(_) -> False
   }
 }
 
@@ -164,6 +164,7 @@ _.sum(3, 4) :: (float ...).to(float)
 if { a = b = c }.ok? {
   // pattern matches! 
   // you can call a function without parens! (only works for dot notation)
+  // ok? :: Result(_, _).to(Bool)
   3 + 4
 } else if c == d {
   9 * 8
@@ -181,7 +182,7 @@ i = {
 
 // abusing UFCS
 
-//ranges
+// ranges (BTW probably it's better to replace this with list-comprehension )
 1.up_to(10) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 1.up_to(10).step(3) // [1, 4, 7]
 1.through(10).step(3) // [1, 4, 7, 10]
