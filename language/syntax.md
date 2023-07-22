@@ -165,6 +165,10 @@ end
 _.sum(3, 4) of (float ...).to(float)
 # TODO: design a workable type signature for varargs
 
+# you can chain statements in the same line: 
+
+(1; 2; 3; 4) # yields 4
+
 # The following if-expression has type int | string
 if (a = b = c).ok? 
   # pattern matches! 
