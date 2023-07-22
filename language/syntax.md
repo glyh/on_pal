@@ -142,9 +142,6 @@ end
 sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before keyword arguments
 # We follow UFCS(Universal Function Call Syntax)
 4.sum(3, 1) # yields 8
-# UFCS also works for binary operators:
-1.+(3).*(4)
-# thus we don't allow any operator that starts with an dot
 
 # Partial application
 4.sum(3) of Float.To(Float) 
