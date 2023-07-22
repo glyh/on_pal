@@ -203,6 +203,9 @@ else
   "a" ++ "b"
 end
 
+# `elif` is just `else: if` (could be a reader macro here)
+# we also have `elmatch`, which is equivalently `else: match`
+
 # and the above is actually this, because do's are omitted:
 
 if (a = b = c).ok? do 
