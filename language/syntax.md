@@ -110,8 +110,8 @@ fn sum(x, y, z): x + y + z
 # `...` is the shorthand for `.. ...`, its value depends on the context
 # if `...` is inside a pattern, it means `.. ...`
 # o.w. it's just a binded value
-fn sum(...) do
-  case ... do
+fn sum(...)
+  case ... # any do at the end of line of a construct is omittable
     [] -> 0
     [first ...]  -> apply(sum, ...) + first
     # note the difference:
@@ -170,6 +170,7 @@ _.sum(3, 4) of (float ...).to(float)
 (1; 2; 3; 4) # yields 4
 
 # The following if-expression has type int | string
+
 if (a = b = c).ok? 
   # pattern matches! 
   # you can call a function without parens! (only works for dot notation)
@@ -180,6 +181,18 @@ elif c == d
 else
   "a" ++ "b"
 end
+
+# and the above is actually this, because do's are omitted:
+
+if (a = b = c).ok? do 
+  3 + 4
+else if c == d do 
+  9 * 8
+else do 
+  "a" ++ "b"
+end
+
+# I need more elaboration on how `do ... end` works 
 
 # We have control structures
 # they have an imperative interface but can be used functionally
