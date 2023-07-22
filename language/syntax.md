@@ -60,7 +60,7 @@ raw = ~r"This is a \r\a\w string" # raw strings
 
 s = 
   \\ This is 
-    \\ a series
+    ~r\\ a \s\e\r\i\e\s
       ~f\\ of multiline {wow}
         \\ Note that it is indentation insignificant
 # And I borrow this from Zig
