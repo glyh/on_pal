@@ -16,6 +16,14 @@ Here's a list of language I found pretty readable to human:
 - With sh-like syntax
   - [Powershell](https://learn.microsoft.com/en-us/powershell/)
 
+## Keywords
+
+- Ruby-like
+- Elixir-like Pattern matching
+- First class array, map, atoms(in elixir, or keywords in clojure)
+- UFCS
+- List comprehension & for yield(not yet)
+
 ## A taste of Pal
 
 Here's some code that maybe of interest: 
