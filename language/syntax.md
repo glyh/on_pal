@@ -45,15 +45,19 @@ a = 3
 
 # Strings
 
+wow = "string"
+
+formatted = ~f"1 + 1 = {1 + 1}\n" # this is a f-string
+raw = ~r"This is a \r\a\w string" # raw strings
+
 s = 
   \\ This is 
     \\ a series
-      \\ of multiline string
+      ~f\\ of multiline {wow}
         \\ Note that it is indentation insignificant
- # And I borrow this from Zig
- # Don't know if there's a more beautiful symbol for this tho.
+# And I borrow this from Zig
+# Don't know if there's a more beautiful symbol for this tho.
 
-formatted = ~f"1 + 1 = {1 + 1}\n" # this is a f-string
 # in general, if you see a `~` it implies that the following is a sigil(concept borrowed from elixir).
 
 # Built-in containers
