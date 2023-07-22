@@ -166,8 +166,8 @@ _.sum(3, 4) of (float ...).to(float)
 # TODO: design a workable type signature for varargs
 
 # you can chain statements in the same line: 
-
-(1; 2; 3; 4) # yields 4
+# every statement is itself an expression so we use `,`
+(1, 2, 3, 4)
 
 # The following if-expression has type int | string
 
@@ -192,7 +192,9 @@ else do
   "a" ++ "b"
 end
 
-# I need more elaboration on how `do ... end` works 
+if true: 3 + 4 else: 3 - 4
+
+# I need more elaboration on how `do ... end` and `:` works 
 
 # We have control structures
 # they have an imperative interface but can be used functionally
