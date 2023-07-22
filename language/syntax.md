@@ -186,7 +186,7 @@ end
 
 if (a = b = c).ok? do 
   3 + 4
-else if c == d do 
+else: if c == d do 
   9 * 8
 else do 
   "a" ++ "b"
