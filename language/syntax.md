@@ -147,7 +147,9 @@ sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before
 # thus we don't allow any operator that starts with an dot
 
 # Partial application
-4.sum(3) of Float.To(Float)
+4.sum(3) of Float.To(Float) 
+# BTW this function is actually still polymorhic because it's vararg, but we can 
+# coerce it to a specific type
 4.sum(3)(1) # yields 8
 
 # note that due to partial application, the following is True:
@@ -201,7 +203,7 @@ else do
   "a" ++ "b"
 end
 
-if true: 3 + 4 else: 3 - 4
+if True: 3 + 4 else: 3 - 4
 
 # I need more elaboration on how `do ... end` and `:` works 
 
