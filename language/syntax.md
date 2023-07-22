@@ -20,7 +20,7 @@ Here's a list of language I found pretty readable to human:
 
 - Ruby-like
 - Elixir-like Pattern matching
-- First class array, table(hashmap, use this term so it doesn't clash with the function map), atoms(in elixir, or keywords in clojure)
+- First class array, table(hashmap, use this term so it doesn't clash with the function map), keywords(as in clojure)
 - UFCS
 - List comprehension & for yield(not yet)
 
@@ -74,11 +74,11 @@ s =
 [abc: "foo", def: "bar"] # we have growable homongeneous table
 # it should be note that, this is just the short form for:
 [:abc => "foo", :def => "bar"]
-# just as in elixir, and yes we have atoms like elixir(or keyword in clojure)
+# just as in elixir, and yes we have keywords(clojure)
 :abc
 # `\` is line continuation
 (a: "ads", b: 1, "hell" => :yeah) \
-of Tuple(a: Str, b: Int, "hell" => Atom)
+of Tuple(a: Str, b: Int, "hell" => Keyword)
 # we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4] # we have homogeneous growable list 
 (1, "a", True, 4) # we have heterogenious ungrowable tuple
