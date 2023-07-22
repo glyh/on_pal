@@ -97,7 +97,7 @@ a = [1, 2, 3, 4]
 
 # Mutability:
 counter of Ref(Int) = &0 # creates an atom just as in clojure. we just use c-like syntax here
-counter.swap(_ + 1) # BTW here we're using something similar to scala's anonymous function
+counter.swap($ + 1) # BTW here we're using something similar to scala's anonymous function
 *counter = *counter + 1
 # Or: 
 print(f"{*counter}\n") # dereferencing an atom we get the underlying value
@@ -169,8 +169,9 @@ fn ok?(r: Result(_, _)) Bool do
   end
 end
 
-# or it can mean an anonymous function in expression:
-_.sum(3, 4) of (float ...).to(float)
+# $ mean an anonymous function in expression, just like in clojure:
+$.sum(3, 4) of (float ...).to(float)
+# we can have $1, $2 ... for positional arguments
 # TODO: design a workable type signature for varargs
 
 # you can chain statements in the same line: 
