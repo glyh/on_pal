@@ -20,7 +20,7 @@ Here's a list of language I found pretty readable to human:
 
 - Ruby-like
 - Elixir-like Pattern matching
-- First class array, map, atoms(in elixir, or keywords in clojure)
+- First class array, table(hashmap, use this term so it doesn't clash with the function map), atoms(in elixir, or keywords in clojure)
 - UFCS
 - List comprehension & for yield(not yet)
 
@@ -71,7 +71,7 @@ s =
 # Built-in containers
 
 # Brackets denote homongenious, while braces denote heterogeneous
-[abc: "foo", def: "bar"] # we have growable homongeneous map
+[abc: "foo", def: "bar"] # we have growable homongeneous table
 # it should be note that, this is just the short form for:
 [:abc => "foo", :def => "bar"]
 # just as in elixir, and yes we have atoms like elixir(or keyword in clojure)
@@ -153,9 +153,9 @@ sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before
 # note that due to partial application, the following is True:
 (float, float, float).to(float) = (float, float).to(float.to(float)) = float.to(float.to(float.to(float)))
 
-# Modules are just heterogenious maps
+# Modules are just heterogenious tables
 abc:def() # a qualified call
-# Note that above is actually just a syntax sugar for accessing fields in a map
+# Note that above is actually just a syntax sugar for accessing fields in a table
 1 = (abc: 1):abc = (abc: 1).at(:abc)
 
 # Types
