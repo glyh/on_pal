@@ -27,10 +27,10 @@ lang {
 };
 
 // Pattern matching:
-name :: Str = "Corvo"; // pattern matching, the semantic is similar to that of elixir
-(x :: Float, l = [y .. rest] :: List(Float)) = (9.0, [9.2, 10, 13]);
+name of Str = "Corvo"; // pattern matching, the semantic is similar to that of elixir
+(x of Float, l = [y .. rest] of List(Float)) = (9.0, [9.2, 10, 13]);
 average = 0.5 * (x + y); // type annotation is optional
-average_works_as_well = 0.5 * (x + y) :: Float; // type annotation is optional
+average_works_as_well = 0.5 * (x + y) of Float; // type annotation is optional
 (list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
 // list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
@@ -64,7 +64,7 @@ formatted = ~f"1 + 1 = {1 + 1}\n"; // this is a f-string
 // just as in elixir, and yes we have atoms like elixir(or keyword in clojure)
 :abc;
 (a: "ads", b: 1, "hell" -> :yeah) 
-:: Tuple(a: Str, b: Int, "hell" -> Atom)
+of Tuple(a: Str, b: Int, "hell" -> Atom)
 ; // we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4]; // we have homogeneous growable list 
 (1, "a", True, 4); // we have heterogenious ungrowable tuple
@@ -81,7 +81,7 @@ a = [1, 2, 3, 4];
 // a == [3, 2, 3, 9]
 
 // Mutability:
-counter :: Ref(Int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
+counter of Ref(Int) = &0; // creates an atom just as in clojure. we just use c-like syntax here
 counter.swap(_ + 1); // BTW here we're using something similar to scala's anonymous function
 *counter = *counter + 1
 // Or: 
@@ -91,9 +91,9 @@ swap(counter, fn(x){x + 1});
 // Function definition: 
 sum = fn(x, y, z) {
   x + y + z
-} :: (Float, Float, Float).To(Float);
+} of (Float, Float, Float).To(Float);
 // or
-sum :: (Float, Float, Float).To(Float) = fn(x, y, z) {x + y + z};
+sum of (Float, Float, Float).To(Float) = fn(x, y, z) {x + y + z};
 // or (we also make it public in this case) 
 pub sum = fn(x: float, y: float, z: float) float {x + y + z};
 
@@ -120,7 +120,7 @@ fn sum(...) {
 [_ .. rest] = [1, 2, 3, 4] // rest = [2, 3, 4]
 
 // `?abc` requires compiler to query the type of the hole
-?abc = 1 // compiler will yield: ?abc :: Int 
+?abc = 1 // compiler will yield: ?abc of Int 
 
 // the compiler prevents read from `_` and `?abc` 
 // the compiler prevents write to `...`
@@ -134,7 +134,7 @@ sum(4, z: 3, y: 1); // yields 8, note that positional arguments must appear befo
 // thus we don't allow any operator that starts with an dot
 
 // Partial application
-4.sum(3) :: Float.To(Float);
+4.sum(3) of Float.To(Float);
 4.sum(3)(1); // yields 8
 
 // note that due to partial application, the following is True:
@@ -157,14 +157,14 @@ fn ok?(r: Result(_, _)) Bool {
 }
 
 // or it can mean an anonymous function in expression:
-_.sum(3, 4) :: (float ...).to(float)
+_.sum(3, 4) of (float ...).to(float)
 // TODO: design a workable type signature for varargs
 
 // The following if-expression has type int | string
 if { a = b = c }.ok? {
   // pattern matches! 
   // you can call a function without parens! (only works for dot notation)
-  // ok? :: Result(_, _).to(Bool)
+  // ok? of Result(_, _).to(Bool)
   3 + 4
 } else if c == d {
   9 * 8
