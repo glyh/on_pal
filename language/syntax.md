@@ -96,11 +96,11 @@ a = [1, 2, 3, 4]
 # Note that this is not mutability, it's just rebinding a to a new array
 
 # Mutability:
-counter of Ref(Int) = &0 # creates an atom just as in clojure. we just use c-like syntax here
+counter of Ref(Int) = ref(0) # creates an atom just as in clojure. we just use c-like syntax here
 counter.swap($ + 1) # BTW here we're using something similar to scala's anonymous function
-*counter = *counter + 1
+deref(counter) = deref(counter) + 1
 # Or: 
-print(f"{*counter}\n") # dereferencing an atom we get the underlying value
+print(f"{counter.deref()}\n") # dereferencing an atom we get the underlying value
 swap(counter, fn(x): x + 1) # I need to reassure the colon rule works the same as in elixir
 
 # Function definition: 
