@@ -38,7 +38,7 @@ name of Str = "Corvo" # pattern matching, the semantic is similar to that of eli
 (x of Float, l = [y .. rest] of List(Float)) = (9.0, [9.2, 10, 13])
 average = 0.5 * (x + y) # type annotation is optional
 average_works_as_well = 0.5 * (x + y) of Float # type annotation is optional
-(list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
+(list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"))
 # list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
 [a, a] = [1, 1] # only binds if the two values are the same, just like in Elixir
@@ -124,6 +124,13 @@ l.{at(..) += 1}
 # equivalent to l.at(..) += 1, but returns the whole container without any rebinding
 # and it's chainable
 l.{at(..) += 1}.{at(0) = 3}
+
+# here {at(..) += 1} is just the sugar: 
+# fn(x) x.at(..) += 1; x end
+# so the following works but are nonsense
+l.(fn(x) x.at(..) += 1; x end)
+
+# Note that semicolon is used to discard the first result
 
 # Note that this is not mutability, it's just rebinding a to a new array
 
