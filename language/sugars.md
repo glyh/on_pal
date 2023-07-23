@@ -3,10 +3,6 @@
 ```
 a = [5, 6]
 [1, 2, 3, 4, 5, 6, 7, 8] = [1, 2 | [3, 4] | a, 7, 8]
-# this is illegal, and unintuitive
-# [1, 2, 3, 4, 5, 6, 7, 8] = [.. [1, 2, 3, 4], 5, 6, 7, 8]
-# use this instead
-[1, 2, 3, 4, 5, 6, 7, 8] = [1, 2, 3, 4] ++ [5, 6, 7, 8]
 // | indicates the following should be spliced
 // , indicates the following should be insert into the list
 ```

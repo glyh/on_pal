@@ -112,10 +112,11 @@ a.at(if True: 0 else: 1) = 7
 
 # broadcasting
 l = [1, 2, 3, 4, 5]
-l.all += 1 # l = [1, 2, 3, 4, 5]
+l.at(..) += 1 # l = [1, 2, 3, 4, 5]
 # this is just an interesting application of setter semantic
 # related: https://developer.hashicorp.com/terraform/language/expressions/splat
 # and it's clear that we don't need map in our std, horay!
+# it should be noted that at is polymorphic, as it accepts both index and range
 
 # Note that this is not mutability, it's just rebinding a to a new array
 
@@ -256,6 +257,16 @@ end
 1..10 # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 1,4..10 # [1, 4, 7]
 1,4..=10 # [1, 4, 7, 10]
+
+..9,10 # this only works if we have a right bounded range
+
+# from rust:
+1..2  # std::ops::Range
+3..   # std::ops::RangeFrom
+..4   # std::ops::RangeTo
+..    # std::ops::RangeFull
+5..=6 # std::ops::RangeInclusive
+..=7  # std::ops::RangeToInclusive
 
 # Chained Try
 # I want to introduce effect system
