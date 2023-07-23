@@ -127,7 +127,6 @@ pub sum = fn(x: float, y: float, z: float) float: x + y + z
 fn sum(x, y, z): x + y + z
 
 # vararg version of sum, along with pattern matching
-# note that semicolon maybe omitted here.
 # `...` is the shorthand for `.. ...`, its value depends on the context
 # if `...` is inside a pattern, it means `.. ...`
 # o.w. it's just a binded value
@@ -234,4 +233,23 @@ end
 1.up_to(10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 1.up_to(10).step(3) # [1, 4, 7]
 1.through(10).step(3) # [1, 4, 7, 10]
+
+# Chained Try
+# I want to introduce effect system
+# assert: Result(_, _) -> excepton ()
+try 
+  response = fetch_from_network(resource_id)
+  assert(response.network_success)
+  value = response.value
+elsetry
+  assert(resource_id.in(offline_cache))
+  value = offline_cache.at(resource_id)
+elsetry
+  print("Failed to get resource. Use manual value?")
+  response = user_input("Resource override: ")
+  assert(not response:cancelled)
+  value = response:value
+elsetry
+  raise Error('Network not available and ID {resource_id} not in offline cache.')
+end
 ```
