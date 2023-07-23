@@ -174,6 +174,9 @@ sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before
 # coerce it to a specific type
 4.sum(3)(1) # yields 8
 
+# Applying to a tuple: 
+a.(1) # equivalent to a((1))
+
 # note that due to partial application, the following is True:
 (Float, Float, Float).To(Float) = (Float, Float).To(Float.To(Float)) = Float.To(Float.to(Float.to(Float)))
 

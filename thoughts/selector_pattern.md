@@ -142,6 +142,9 @@ l.at(0).at(1) = 10
 # tmp.at(1) = 10
 # l.at(0) = tmp
 # we have the result: [[1, 10, 3], []]
+
+# we may also write this, for another version of at that supports nested indexing:
+l.at.(0, 1) = 10
 ```
 
 ## Why?
