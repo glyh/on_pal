@@ -63,6 +63,12 @@ wow = "string"
 
 formatted = ~f"1 + 1 = {1 + 1}\n" # this is a f-string
 raw = ~r"This is a \r\a\w string" # raw strings
+[[String supports alternative string delimiter just as in Lua]]
+~r/in sigil you can also use slash/and-pass-another-arg-if-needed
+~r(you can use brace)note-that-no-space
+~r[bracket]is-allowed
+~r{moustache}here
+~r[=[And of course the lua like deliminater is also supported]=]so-fancy
 
 s = 
   \\ This is 
@@ -122,6 +128,8 @@ l.at(..) += 1 # l = [1, 2, 3, 4, 5]
 # also it's possible to incapsulate the selector pattern to a new function: 
 l.{at(..) += 1}
 # equivalent to l.map($ + 1)
+# or do l.at(..) += 1; l end
+# note that the new scope forbids l escaping, so they're technically same
 # note that this doesn't have any side effect
 # and it's chainable
 l.{at(..) += 1}.{at(0) = 3}
