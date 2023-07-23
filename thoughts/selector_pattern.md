@@ -117,6 +117,7 @@ l.at(..) = 0 # l = [0, 0, 0, 0]
 # the above is compiled to: 
 # l = at(l, .., C(0))
 ```
+Suprise! We get splat expression for free!
 
 Here's another example:
 
