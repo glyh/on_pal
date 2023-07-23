@@ -181,7 +181,8 @@ fn ok?(r: Result(_, _)) Bool do
 end
 
 # $ mean an anonymous function in expression, just like in clojure:
-$.sum(3, 4) of (float ...).to(float)
+$.sum(3, 4, ..) of (float ...).to(float)
+# note that the `..` is forced, o.w. it will not be infered as an vararg function.
 # we can have $1, $2 ... for positional arguments
 # TODO: design a workable type signature for varargs
 
