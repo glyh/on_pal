@@ -230,10 +230,24 @@ end
 
 # abusing UFCS
 
-# ranges (BTW probably it's better to replace this with list-comprehension )
-1.up_to(10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
-1.up_to(10).step(3) # [1, 4, 7]
-1.through(10).step(3) # [1, 4, 7, 10]
+# ranges
+[]
+
+# 1 to 10 # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# 1 to 10 step 3 # [1, 4, 7]
+# 1 through 10 step 3 # [1, 4, 7, 10]
+
+# # ranges (BTW probably it's better to replace this with list-comprehension )
+# 1.up_to(10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# 1.up_to(10).step(3) # [1, 4, 7]
+# 1.through(10).step(3) # [1, 4, 7, 10]
+
+# broadcasting
+l = [1, 2, 3, 4, 5]
+l.all += 1 # l = [1, 2, 3, 4, 5]
+# this is just an interesting application of setter semantic
+# related: https://developer.hashicorp.com/terraform/language/expressions/splat
+# and it's clear that we don't need map in our std, horay!
 
 # Chained Try
 # I want to introduce effect system
