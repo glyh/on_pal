@@ -121,7 +121,8 @@ l.at(..) += 1 # l = [1, 2, 3, 4, 5]
 
 # also it's possible to incapsulate the selector pattern to a new function: 
 l.{at(..) += 1}
-# equivalent to l.at(..) += 1, but returns the whole container without any rebinding
+# equivalent to l.map($ + 1)
+# note that this doesn't have any side effect
 # and it's chainable
 l.{at(..) += 1}.{at(0) = 3}
 
@@ -135,9 +136,9 @@ l.(fn(x) x.at(..) += 1; x end)
 # Note that this is not mutability, it's just rebinding a to a new array
 
 # Mutability:
-counter of Ref(Int) = ref(0) # creates an atom just as in clojure. we just use c-like syntax here
-counter.swap($ + 1) # BTW here we're using something similar to scala's anonymous function
-deref(counter) = deref(counter) + 1
+counter of Atom(Int) = ref(0) # creates an atom just as in clojure.
+counter.deref += 1 
+# swaping the atom with selector pattern syntax
 # Or: 
 print(f"{counter.deref()}\n") # dereferencing an atom we get the underlying value
 swap(counter, fn(x): x + 1) # I need to reassure the colon rule works the same as in elixir
