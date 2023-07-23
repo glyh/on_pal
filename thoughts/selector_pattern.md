@@ -53,7 +53,7 @@ That's it! Now back to the original topic.
 
 In a functional language, we retrieve part of the collection by function. And that's just what we call "getter" in OOP languages. But where's the setters? There isn't a setter in functional language because it doesn't mutate state. 
 
-However, it's a common thing that rebinding is allowed and eagerly recommended in many language, as it doesn't make sense to make up a lot of meaningless intermediate state during the transformation of the data structure.
+However, it's a common thing that rebinding is allowed and recommended in many language, as it doesn't make sense to name a lot of meaningless intermediate state during the transformation of the data structure.
 
 Take an example, the following code:
 
@@ -62,7 +62,7 @@ a = 1
 a = a + 1
 ```
 
-So what you explain is that: `a` is first bind to value `1`, and then rebind to value `a + 1` which is `2`. But we all see the language is just trying to mimic imperative language, but there's nothing to feel shame about because it's more intuitive!
+So you explain: `a` is first bind to value `1`, and then rebind to value `a + 1` which is `2`. But we all see the language is just trying to mimic imperative language, but there's nothing to feel shame about because it's more intuitive!
 
 ## Selector: setter counter part to getter in functional language
 
@@ -109,8 +109,13 @@ We have the following:
 ```ruby
 l = [1, 2, 3, 4]
 l.at(0) = 3 # l = [3, 2, 3, 4]
+# the above is compiled to: 
+# l = at(l, 0, C(3))
+# where C is the function that ignores the input and returns 3 
 # .. is the full range in Pal
 l.at(..) = 0 # l = [0, 0, 0, 0]
+# the above is compiled to: 
+# l = at(l, .., C(0))
 ```
 
 Here's another example:
