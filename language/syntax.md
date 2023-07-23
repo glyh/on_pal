@@ -248,7 +248,7 @@ loop: nop # infinite loop with nothing done
 for 
   i <- 1..=4
   j <- 5..=8
-do
+do # note that for the following block, result should be () | a, we allow skipping the loop
   yield i + j
 end
 
