@@ -104,10 +104,19 @@ a = [1, 2, 3, 4]
 (a.at(0), a.at(3)) = (3, 9) # modifying the array
 # a == [3, 2, 3, 9]
 
-if True: a.at(0) else: a.at(1) = 7
-# or
+# this is not support, explicitly
+# if True: a.at(0) else: a.at(1) = 7
+
+# this is supported instead
 a.at(if True: 0 else: 1) = 7
-# a = [7, 2, 3, 9], BTW just becuz you can write them doesn't mean you should lol
+# a = [7, 2, 3, 9]
+
+# broadcasting
+l = [1, 2, 3, 4, 5]
+l.all += 1 # l = [1, 2, 3, 4, 5]
+# this is just an interesting application of setter semantic
+# related: https://developer.hashicorp.com/terraform/language/expressions/splat
+# and it's clear that we don't need map in our std, horay!
 
 # Note that this is not mutability, it's just rebinding a to a new array
 
@@ -244,13 +253,6 @@ end
 # 1.up_to(10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # 1.up_to(10).step(3) # [1, 4, 7]
 # 1.through(10).step(3) # [1, 4, 7, 10]
-
-# broadcasting
-l = [1, 2, 3, 4, 5]
-l.all += 1 # l = [1, 2, 3, 4, 5]
-# this is just an interesting application of setter semantic
-# related: https://developer.hashicorp.com/terraform/language/expressions/splat
-# and it's clear that we don't need map in our std, horay!
 
 # Chained Try
 # I want to introduce effect system
