@@ -1,3 +1,4 @@
+So selector pattern is similar to Scala's [monocle](https://www.optics.dev/Monocle/) or [chimney](https://github.com/scalalandio/chimney) after taking a look, but I think my approach is more elegant and composable.
 # here's a list of possible selector pattern's signature
 
 ```haskell
