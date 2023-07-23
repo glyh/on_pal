@@ -97,6 +97,9 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 
 # Bindable pattern(setter)
 # This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter)
+
+at :: a => (Enumerable(a), a.To(a)).To(Enumerable(a))
+
 a = [1, 2, 3, 4]
 (a.at(0), a.at(3)) = (3, 9) # modifying the array
 # a == [3, 2, 3, 9]
