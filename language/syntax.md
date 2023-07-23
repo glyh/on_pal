@@ -181,9 +181,10 @@ a.(1) # equivalent to a((1))
 (Float, Float, Float).To(Float) = (Float, Float).To(Float.To(Float)) = Float.To(Float.to(Float.to(Float)))
 
 # Modules are just heterogenious tables
-abc:def() # a qualified call
+abc.def() # a qualified call
 # Note that above is actually just a syntax sugar for accessing fields in a table
-1 = (abc: 1):abc = (abc: 1).at(:abc)
+1 = (abc: 1).abc = (abc: 1).at(:abc)
+# nim supports both UFCS and fields so it should be possible for us to do this too.
 
 # Types
 
