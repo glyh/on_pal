@@ -10,8 +10,7 @@ Here's a list of language I found pretty readable to human:
   - [Groovy](https://groovy-lang.org/)
 - With basic-like syntax
   - [Ruby](https://www.ruby-lang.org/)
-  - [Lua](https://www.lua.org/)
-  - [Applescript](https://macosxautomation.com/applescript/)
+  - [Lua](https://www.lua.org/) [Applescript](https://macosxautomation.com/applescript/)
   - [Basic](https://en.wikipedia.org/wiki/BASIC)
 - With sh-like syntax
   - [Powershell](https://learn.microsoft.com/en-us/powershell/)
@@ -36,10 +35,10 @@ end
 
 # Pattern matching:
 name of Str = "Corvo" # pattern matching, the semantic is similar to that of elixir
-(x of Float, l = [y .. rest] of List(Float)) = (9.0, [9.2, 10, 13])
+(x of Float, l = [y | rest] of List(Float)) = (9.0, [9.2, 10, 13])
 average = 0.5 * (x + y) # type annotation is optional
 average_works_as_well = 0.5 * (x + y) of Float # type annotation is optional
-(list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
+(list = [first, second | rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"));
 # list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
 [a, a] = [1, 1] # only binds if the two values are the same, just like in Elixir
@@ -139,8 +138,8 @@ pub sum = fn(x: float, y: float, z: float) float: x + y + z
 fn sum(x, y, z): x + y + z
 
 # vararg version of sum, along with pattern matching
-# `...` is the shorthand for `.. ...`, its value depends on the context
-# if `...` is inside a pattern, it means `.. ...`
+# `...` is the shorthand for `| ...`, its value depends on the context
+# if `...` is inside a pattern, it means `| ...`
 # o.w. it's just a binded value
 fn sum(...)
   case ... # any do at the end of line of a construct is omittable
@@ -154,7 +153,7 @@ fn sum(...)
 end
 
 # `_` discard the values 
-[_ .. rest] = [1, 2, 3, 4] # rest = [2, 3, 4]
+[_ | rest] = [1, 2, 3, 4] # rest = [2, 3, 4]
 
 # `?abc` requires compiler to query the type of the hole
 ?abc = 1 # compiler will yield: ?abc of Int 
@@ -193,8 +192,7 @@ fn ok?(r: Result(_, _)) Bool do
 end
 
 # $ mean an anonymous function in expression, just like in clojure:
-$.sum(3, 4, ..) of (float ...).to(float)
-# note that the `..` is forced, o.w. it will not be infered as an vararg function.
+$.sum(3, 4) of (float ...).to(float)
 # we can have $1, $2 ... for positional arguments
 # TODO: design a workable type signature for varargs
 
@@ -239,20 +237,25 @@ if True: 3 + 4 else: 3 - 4
 i = do
   break 1
 end
+# a hard problem: inferencing type for do block
 
-# abusing UFCS
+loop
+end # infinite loop
 
-# ranges
-[]
+loop: nop # infinite loop with nothing done
 
-# 1 to 10 # [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# 1 to 10 step 3 # [1, 4, 7]
-# 1 through 10 step 3 # [1, 4, 7, 10]
+# for comprehension
+for 
+  i <- 1..=4
+  j <- 5..=8
+do
+  yield i + j
+end
 
-# # ranges (BTW probably it's better to replace this with list-comprehension )
-# 1.up_to(10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# 1.up_to(10).step(3) # [1, 4, 7]
-# 1.through(10).step(3) # [1, 4, 7, 10]
+# ranges, l-inclusive, r-exclusive by default
+1..10 # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1,4..10 # [1, 4, 7]
+1,4..=10 # [1, 4, 7, 10]
 
 # Chained Try
 # I want to introduce effect system
