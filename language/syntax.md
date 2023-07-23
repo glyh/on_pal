@@ -242,15 +242,16 @@ try
   response = fetch_from_network(resource_id)
   assert(response.network_success)
   value = response.value
-elsetry
+catch e try
+  print(e)
   assert(resource_id.in(offline_cache))
   value = offline_cache.at(resource_id)
-elsetry
+catch try
   print("Failed to get resource. Use manual value?")
   response = user_input("Resource override: ")
   assert(not response:cancelled)
   value = response:value
-elsetry
+else
   raise Error('Network not available and ID {resource_id} not in offline cache.')
 end
 ```
