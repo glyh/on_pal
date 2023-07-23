@@ -119,6 +119,12 @@ l.at(..) += 1 # l = [1, 2, 3, 4, 5]
 # and it's clear that we don't need map in our std, horay!
 # it should be noted that at is polymorphic, as it accepts both index and range
 
+# also it's possible to incapsulate the selector pattern to a new function: 
+l.{at(..) += 1}
+# equivalent to l.at(..) += 1, but returns the whole container without any rebinding
+# and it's chainable
+l.{at(..) += 1}.{at(0) = 3}
+
 # Note that this is not mutability, it's just rebinding a to a new array
 
 # Mutability:
