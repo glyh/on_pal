@@ -144,7 +144,8 @@ l.at(0).at(1) = 10
 # we have the result: [[1, 10, 3], []]
 
 # we may also write this, for another version of at that supports nested indexing:
-l.at.(0, 1) = 10
+l.at.(0, 2) = 9 # [[1, 10, 9], []]
+l.at(1) append= 3 # [[1, 10, 9], [3]]
 ```
 
 ## Why?
