@@ -182,6 +182,8 @@ a.(1) # equivalent to a((1))
 
 # Modules are just heterogenious tables
 abc.def() # a qualified call
+# there's also an alternative syntax: 
+# abc:def, so that you can use functions from another module with UFCS
 # Note that above is actually just a syntax sugar for accessing fields in a table
 1 = (abc: 1).abc = (abc: 1).at(:abc)
 # nim supports both UFCS and fields so it should be possible for us to do this too.
