@@ -280,16 +280,28 @@ i = do
 end
 # a hard problem: inferencing type for do block
 
-loop
+forever
 end # infinite loop
 
-loop: nop # infinite loop with nothing done
+forever: nop # infinite loop with nothing done
 
 # for comprehension
+# a <- b is multi-pattern matching
+# this is only allowed in for expression
+for: [a .. b] <- [1, 2, 3]
+  (a, b)
+end # [([], [1, 2, 3]), ([1], [2, 3]), ([1, 2], [3]), ([1, 2, 3], [])]
+
+for: i <- 1..=4, j <- 5..=8
+  # note that for the following block, result should be () | a, we allow skipping the loop
+  yield i + j
+end
+
+# or: 
 for 
   i <- 1..=4
   j <- 5..=8
-do # note that for the following block, result should be () | a, we allow skipping the loop
+do
   yield i + j
 end
 
