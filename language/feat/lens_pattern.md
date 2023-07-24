@@ -58,10 +58,3 @@ slice range f ds =
   sliced_new = f sliced
   merge left sliced_new right
 ```
-
-## Syntax
-
-```ruby
-a swap<- b, c # equivalent to `a = swap(a, b, c)`
-a swap= b # equivalent to `a = swap(a, b)`
-```
