@@ -1,3 +1,4 @@
+Thanks https://williamyaoh.com/posts/2019-04-25-lens-exercises.html
 Lens pattern is just a syntatical sugar for something like Haskell's lens.
 
 ## Single Updating Lens
@@ -22,6 +23,17 @@ Lens Pattern allow us to write this:
 d.f.p1.p2 = new_val
 ```
 Which means: query field f of data structure d, if the predicate p1 and p2 are both true, then replace the value with new_val. Note that this only create a new data structure and binds it to d.
+
+## How do you compile this? 
+```hs
+-- `d.f.p1.p2 g= newval` is compiled to
+d = 
+  let got = d ^. f in
+    if p1 got and p2 got then
+      f %~ g $ d
+    else
+      d
+```
 
 ## Viewing
 
