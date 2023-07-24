@@ -59,6 +59,34 @@ slice range f ds =
   merge left sliced_new right
 ```
 
+## Disecting the Lens
+
+We may disect the lens into 2 parts LSel(Lense Selector) and LRed(Lense Reducer):
+It's funny that they are symmetric
+```haskell
+-- Lens a b = Functor f => (a -> f a) -> b -> f b
+LSel ds fd r = Functor f => ds -> f (fd, r)
+LRed ds fd r = Functor f => fd -> r -> f ds
+-- ds: the data structure being operated
+-- fd: the field or view of interest
+-- r: the remaining parts, useful for reconstructing the ds
+
+-- sel_slice :: Range -> (LSel d f r)
+sel_slice range ds =
+  left, sliced, right = split_with_range ds range
+  (slice, (left, right))
+
+-- red_slice :: Range -> LRed d f r
+red_slice _ selected (left, right) = 
+  merge (left, selected, right) 
+
+-- and the original lens can be represented as: 
+-- forgive me this is pesudocode
+slice range f ds = 
+  (sliced, rem) = sel_slice range ds 
+  red_slice range sliced rem
+```
+
 ## Syntax
 
 ```ruby
