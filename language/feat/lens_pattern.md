@@ -25,14 +25,21 @@ d.f.p1.p2 = new_val
 Which means: query field f of data structure d, if the predicate p1 and p2 are both true, then replace the value with new_val. Note that this only create a new data structure and binds it to d.
 
 ## How do you compile this? 
+When lens pattern occurs on lhs of a pattern matching
 ```hs
--- `d.f.p1.p2 g= newval` is compiled to
+-- `d.f.p1.p2 g= newval`(where p1 and p2 are lens) is compiled to
 d = 
   let got = d ^. f in
     if p1 got and p2 got then
       f %~ g $ d
     else
       d
+```
+When lens pattern occurs on rhs of a pattern matching
+```
+-- `a = d.f1.f2`(where f1 and f2 are lens)  is compiled to
+a = d ^. f1.f2
+-- d.f.p1 on rhs requires special care, I need to figure that out.
 ```
 
 ## Viewing
