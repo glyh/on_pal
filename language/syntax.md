@@ -109,6 +109,12 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 
 # at :: Mappable(M) => M(a) -> (a -> a) -> M(a)
 # LHS of `=>` is not expression, they need special attention
+# Let's try pattern matching on `at`
+# It's worth noting that: M and a may change but the relation is preserved, you'll always get something like:
+Mappable(A) => A(a) -> (a -> a) -> A(a)
+# so we have deterministic behavior
+T(A) => A(Int) -> f = typeof(at) # f = T(A) => (Int -> Int) -> A(Int)
+# I think we need logic unification here Lol
 
 # LHS of `=` is also not, but it's a well defined pattern language.
 
