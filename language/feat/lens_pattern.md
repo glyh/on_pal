@@ -27,11 +27,11 @@ Which means: query field f of data structure d, if the predicate p1 and p2 are b
 ## How do you compile this? 
 When lens pattern occurs on lhs of a pattern matching
 ```hs
--- `d.f.p1.p2 g= newval`(where p1 and p2 are lens) is compiled to
+-- `d.f.p1.p2 g= newval`(where p1 and p2 are predicate, f is a lens) is compiled to
 d = 
   let got = d ^. f in
     if p1 got and p2 got then
-      f %~ g $ d
+      f %~ (g newval) $ d
     else
       d
 ```
@@ -57,34 +57,6 @@ slice range f ds =
   left, sliced, right = split_with_range ds range
   sliced_new = f sliced
   merge left sliced_new right
-```
-
-## Disecting the Lens
-
-We may disect the lens into 2 parts LSel(Lense Selector) and LRed(Lense Reducer):
-It's funny that they are symmetric
-```haskell
--- Lens a b = Functor f => (a -> f a) -> b -> f b
-LSel ds fd r = Functor f => ds -> f (fd, r)
-LRed ds fd r = Functor f => fd -> r -> f ds
--- ds: the data structure being operated
--- fd: the field or view of interest
--- r: the remaining parts, useful for reconstructing the ds
-
--- sel_slice :: Range -> (LSel d f r)
-sel_slice range ds =
-  left, sliced, right = split_with_range ds range
-  (slice, (left, right))
-
--- red_slice :: Range -> LRed d f r
-red_slice _ selected (left, right) = 
-  merge (left, selected, right) 
-
--- and the original lens can be represented as: 
--- forgive me this is pesudocode
-slice range f ds = 
-  (sliced, rem) = sel_slice range ds 
-  red_slice range sliced rem
 ```
 
 ## Syntax
