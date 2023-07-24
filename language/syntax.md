@@ -107,6 +107,15 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 
 # pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
 
+# in Pal, cons cell is represented with `->` 
+1 -> 2 -> 3
+# yes this is the same construct used to represent type of function type
+# designed trait & impl syntax
+impl Mappable(M), a sig M(a) -> (a -> a) -> M(a)
+trait Mappable(M)
+end
+
+
 # at :: :M(:a) -> (:a -> :a) -> :M(:a) where Mappable(:M)
 # RHS of `where` is not expression, they need special attention
 # Let's try pattern matching on `at`
