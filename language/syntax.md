@@ -107,14 +107,12 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 
 # pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
 
-# at :: Mappable(M) => M(a) -> (a -> a) -> M(a)
-# LHS of `=>` is not expression, they need special attention
+# at :: :M(:a) -> (:a -> :a) -> :M(:a) where Mappable(:M)
+# RHS of `where` is not expression, they need special attention
 # Let's try pattern matching on `at`
-# It's worth noting that: M and a may change but the relation is preserved, you'll always get something like:
-Mappable(A) => A(a) -> (a -> a) -> A(a)
-# so we have deterministic behavior
-T(A) => A(Int) -> f = typeof(at) # f = T(A) => (Int -> Int) -> A(Int)
+# :T(:a) => :M(Int) -> f = typeof(at) # f = T(A) => (Int -> Int) -> A(Int)
 # I think we need logic unification here Lol
+# above is just some experiments, matching on function types feels weird and I didn't figure out how yet.
 
 # LHS of `=` is also not, but it's a well defined pattern language.
 
