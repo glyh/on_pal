@@ -14,8 +14,8 @@ Say we have:
 d :: D
 f :: F
 l :: Lens F D
-p1 :: F -> Bool
-p2 :: F -> Bool
+p1 :: Predicate F
+p2 :: Predicate F
 ```
 Lens Pattern allow us to write this:
 ```python
