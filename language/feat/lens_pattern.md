@@ -20,7 +20,6 @@ p2 :: Predicate F
 Lens Pattern allow us to write this:
 ```python
 d.f.p1.p2 = new_val
-
 ```
 Which means: query field f of data structure d, if the predicate p1 and p2 are both true, then replace the value with new_val. Note that this only create a new data structure and binds it to d.
 
