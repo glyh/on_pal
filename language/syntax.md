@@ -62,13 +62,15 @@ a = 3
 wow = "string"
 
 formatted = ~f"1 + 1 = {1 + 1}\n" # this is a f-string
-raw = ~r"This is a \r\a\w string" # raw strings
+raw = ~raw"This is a \r\a\w string" # raw strings
 [[String supports alternative string delimiter just as in Lua]]
-~r/in sigil you can also use slash/and-pass-another-arg-if-needed
-~r(you can use brace)note-that-no-space
-~r[bracket]is-allowed
-~r{moustache}here
-~r[=[And of course the lua like deliminater is also supported]=]so-fancy
+~a/in sigil you can also use slash/and-pass-another-arg-if-needed
+~a(you can use brace)note-that-no-space
+~a[bracket]is-allowed
+~a{moustache}here
+~a[=[And of course the lua like deliminater is also supported]=]so-fancy
+~r/default.format.[a-z]+for regex/i # pass additional param to regex
+~t(2020-01-07 04:01:21) # default format for date literal and all other literals
 
 s = 
   \\ This is 
@@ -103,7 +105,12 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 # Bindable pattern(setter)
 # This is inspired by [redplanetlabs/specter](https://github.com/redplanetlabs/specter)
 
-at :: a => (Enumerable(a), a.To(a)).To(Enumerable(a))
+# pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
+
+# at :: Mappable(M) => M(a) -> (a -> a) -> M(a)
+# LHS of `=>` is not expression, they need special attention
+
+# LHS of `=` is also not, but it's a well defined pattern language.
 
 a = [1, 2, 3, 4]
 (a.at(0), a.at(3)) = (3, 9) # modifying the array
@@ -152,11 +159,14 @@ print(f"{counter.deref()}\n") # dereferencing an atom we get the underlying valu
 swap(counter, fn(x): x + 1) # I need to reassure the colon rule works the same as in elixir
 
 # Function definition: 
-sum = fn(x, y, z): x + y + z of (Float, Float, Float).To(Float)
+sum = fn(x, y, z): x + y + z of Float -> Float -> Float -> Float
+# I expect pattern matching to be working on types so there's job to be done lol
+a -> Float -> Float -> b = typeof(sum)
+
 # Or
-sum of (Float, Float, Float).To(Float) = fn(x, y, z): x + y + z
+sum of Float -> Float -> Float -> Float = fn(x, y, z): x + y + z
 # or (we also make it public in this case) 
-pub sum = fn(x: float, y: float, z: float) float: x + y + z
+pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
 
 # or just:
 fn sum(x, y, z): x + y + z
@@ -167,8 +177,8 @@ fn sum(x, y, z): x + y + z
 # o.w. it's just a binded value
 fn sum(...)
   case ... # any do at the end of line of a construct is omittable
-    [] -> 0
-    [first ...]  -> apply(sum, ...) + first
+    [] => 0
+    [first ...]  => apply(sum, ...) + first
     # note the difference:
     # say we have ... = (1, 2, 3)
     # (1 ...) = (1, 2, 3)
@@ -191,16 +201,13 @@ sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before
 4.sum(3, 1) # yields 8
 
 # Partial application
-4.sum(3) of Float.To(Float) 
+4.sum(3) of Float -> Float
 # BTW this function is actually still polymorhic because it's vararg, but we can 
 # coerce it to a specific type
 4.sum(3)(1) # yields 8
 
 # Applying to a tuple: 
 a.(1) # equivalent to a((1))
-
-# note that due to partial application, the following is True:
-(Float, Float, Float).To(Float) = (Float, Float).To(Float.To(Float)) = Float.To(Float.to(Float.to(Float)))
 
 # Modules are just heterogenious tables
 abc.def() # a qualified call
