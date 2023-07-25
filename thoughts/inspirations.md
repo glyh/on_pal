@@ -36,7 +36,7 @@ Imagined Syntax:
 # x is a logic variable.
 # unification solves all value for x and in the for-comphrehension we may use them.
 
-for x in [1, 2, 3]
+forall x in [1, 2, 3]
   yield x+1
 end
 
@@ -46,23 +46,24 @@ end
 
 # and you can do this and all fancy stuff because of logic programming!
 
-for [x, 2] in [[1, 2], [2, 1], [3, 2]]
+forall [x, 2] in [[1, 2], [2, 1], [3, 2]]
   yield x
 end # [1, 3]
 
 # TODO: investigate relation between this and datalog
-
 ```
-Note that I expect `for {logic expression}: {yield expression}`. 
+Note that I expect `forall {logic expression}: {yield expression}`. 
 But for syntax elegancy, boolean expression is also allowed. 
 
 So the above is actually a sugar for:
 ```
-for (x in [1, 2, 3] is True)
+forall (x in [1, 2, 3] is True)
   yield x + 1
 end
 ```
 Here, `x in [1, 2, 3] is True` is the full logic statement. Also, any undefined variables automatically coerce to logic variable.
 This(logic comphrehension) is tremendously useful, btw.
+
+In general, `for` should be preferred in stead of `forall` for the sake of efficiency.
 
 I need some other effect to designate that a function may yield different solution.
