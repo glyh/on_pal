@@ -111,19 +111,15 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 1 -> 2 -> 3
 # yes this is the same construct used to represent type of function type
 # designed trait & impl syntax
-impl Mappable(M), a sig M(a) -> (a -> a) -> M(a)
+
 trait Mappable(M)
 end
 
+# we may declare a variable then implement it: 
+at :: M(:a) -> (:a -> :a) -> M(:a) forall Mappable(M) 
+at = (omitted here)
 
-# at :: :M(:a) -> (:a -> :a) -> :M(:a) where Mappable(:M)
-# RHS of `where` is not expression, they need special attention
-# Let's try pattern matching on `at`
-# :T(:a) => :M(Int) -> f = typeof(at) # f = T(A) => (Int -> Int) -> A(Int)
-# I think we need logic unification here Lol
-# above is just some experiments, matching on function types feels weird and I didn't figure out how yet.
-
-# LHS of `=` is also not, but it's a well defined pattern language.
+# TODO: figure out how to pattern match on function type
 
 a = [1, 2, 3, 4]
 (a.at(0), a.at(3)) = (3, 9) # modifying the array
@@ -145,14 +141,23 @@ l.at(..) += 1 # l = [1, 2, 3, 4, 5]
 # and it's clear that we don't need map in our std, horay!
 # it should be noted that at is polymorphic, as it accepts both index and range
 
+# Note the following is ugly, need a better syntax
 # also it's possible to incapsulate the selector pattern to a new function: 
-l.{at(..) += 1}
+l.{.at(..) + 1}
 # equivalent to l.map($ + 1)
 # or do l.at(..) += 1; l end
 # note that the new scope forbids l escaping, so they're technically same
 # note that this doesn't have any side effect
 # and it's chainable
-l.{at(..) += 1}.{at(0) = 3}
+l.{.at(..) + 1}.{.at(0) = 3}
+l.swap{ |l| l.at(..) += 1; l }
+
+# how to make this shorter? a = f(a) 
+a swap= f
+
+swap :: :a -> (:a -> :b) -> :b
+
+10.times{ puts "love" }
 
 # here {at(..) += 1} is just the sugar: 
 # fn(x) x.at(..) += 1; x end
@@ -240,6 +245,7 @@ fn ok?(r: Result(_, _)) Bool do
     Err(_) -> False
   end
 end
+# WARN: we don't allow omitting (), so we can distinguish function call from functions.
 
 # $ mean an anonymous function in expression, just like in clojure:
 $.sum(3, 4) of (float ...).to(float)

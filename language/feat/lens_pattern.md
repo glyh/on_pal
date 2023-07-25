@@ -35,6 +35,13 @@ d =
     else
       d
 ```
+
+`(d.f1.f2.p1.p2, e.f3.f4.p3.p4) g= rhs` has the following evaluation order:
+1. `rhs` is evaluated
+2. `d.f1.f2.p1.p2` and `e.f3.f4.p3.p4` are evaluated, put into a tuple t together
+3. `t = t g rhs` is evaluated
+4. t get destructed and related values are assigned back to d and e's corresponding field.
+
 When lens pattern occurs on rhs of a pattern matching
 ```
 -- `a = d.f1.f2`(where f1 and f2 are lens)  is compiled to

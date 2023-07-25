@@ -39,3 +39,8 @@ many interesting ideas in this area, I need to take some look.
 
 ## Data oriented error handling
 I need to check [how functional programming achieves no runtime exceptions](https://softwareengineering.stackexchange.com/questions/420872/how-functional-programming-achieves-no-runtime-exceptions) and [elm error handling](https://guide.elm-lang.org/error_handling/)
+
+## Design on the type monoid hierarchy
+- https://stackoverflow.com/questions/49829666/why-has-haskell-decided-against-using-for-string-list-concatenation
+- https://old.reddit.com/r/haskell/comments/151xadm/what_are_some_of_the_more_pragmatic_names_for/
+- Curry lang use "Addable" for Monoid, that's a good start, I'll check.
