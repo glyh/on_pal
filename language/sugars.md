@@ -1,5 +1,5 @@
 ### Some sugars in mind:
-- list splicing works
+- list spreading(js term)/splicing(lisp term) works
 ```
 a = [5, 6]
 [1, 2, 3, 4, 5, 6, 7, 8] = [1, 2 .. [3, 4] .. a, 7, 8]
