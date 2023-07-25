@@ -18,6 +18,7 @@ pUri = do
       return Authority {..}
     return Uri {..}
 ```
+Note: I think rust's version is better. and also I can't make it to my language
 
 ### Effects 
 - Debugging Effect 
