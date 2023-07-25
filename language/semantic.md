@@ -44,3 +44,41 @@ I need to check [how functional programming achieves no runtime exceptions](http
 - https://stackoverflow.com/questions/49829666/why-has-haskell-decided-against-using-for-string-list-concatenation
 - https://old.reddit.com/r/haskell/comments/151xadm/what_are_some_of_the_more_pragmatic_names_for/
 - Curry lang use "Addable" for Monoid, that's a good start, I'll check.
+
+## <del>First Class Inf in Int type</del> 
+
+**Rejected**: introduce more corner case, and not so useful.
+
+I  don't know if this idea is stupid.
+
+In my language, Int is the arbitrary precision integer type, along with Infinity.
+
+These range should have the same type, o.w. it doesn't make sense
+
+```
+1..2  # std::ops::Range
+3..   # std::ops::RangeFrom
+..4   # std::ops::RangeTo
+..    # std::ops::RangeFull
+5..=6 # std::ops::RangeInclusive
+..=7  # std::ops::RangeToInclusive
+```
+So I propose
+```
+3..inf # equivalent to 3..
+-inf..4 # equivalent to ..4
+```
+Thus, Enum trait should be split out a subtrait: OrdEnum.
+
+Enum > OrdEnum > FiniteEnum
+
+`..` and `..4` is enumerable, but not orderly enumerable
+
+Then the problem we're left with is the issue of:
+
+`inf*0`, `0/0`, `inf/inf`
+
+I think there's no issue introducing more errors, as "div by 0" is already a runtime error.
+
+## Logic variables
+any unbound variables is treated as a logic variable.
