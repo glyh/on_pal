@@ -44,6 +44,14 @@ end
 # this is suprisingly readable. Don't know why people design 
 # Haskell to be unreadable in the first place.
 
+# and you can do this and all fancy stuff because of logic programming!
+
+for [x, 2] in [[1, 2], [2, 1], [3, 2]]
+  yield x
+end # [1, 3]
+
+# TODO: investigate relation between this and datalog
+
 ```
 Note that I expect `for {logic expression}: {yield expression}`. 
 But for syntax elegancy, boolean expression is also allowed. 
