@@ -116,6 +116,7 @@ trait Mappable(M)
 end
 
 # we may declare a variable then implement it: 
+# NOTE: revise this required
 at :: M(:a) -> (:a -> :a) -> M(:a) forall Mappable(M) 
 at = (omitted here)
 
