@@ -1,5 +1,12 @@
 ## NOTE: This is a vaporware.
 
+<!-- ![Logo for Yula](assets/logo.jpg) { height = 300px; } -->
+<div align="center">
+    <img alt="logo for Yula" src="assets/logo.jpg" width="200px" />
+</div>
+
+(this logo is temporary, help from ui designers and calligraphers wanted!)
+
 ## Quick Pitch
 - [ ] A **lazy** **statically-typed** **functional** language
 - [ ] **Tight-integration** with [Zig](https://ziglang.org/)/C
