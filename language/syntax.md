@@ -1,5 +1,5 @@
 ## Classification
-Pal's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
+Yula's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
 
 ## List of readable languages
 
@@ -23,7 +23,7 @@ Here's a list of language I found pretty readable to human:
 - UFCS
 - List comprehension & for yield(not yet)
 
-## A taste of Pal
+## A taste of Yula
 
 Here's some code that maybe of interest: 
 
@@ -107,7 +107,7 @@ of Tuple(a: Str, b: Int, "hell" => Keyword)
 
 # pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
 
-# in Pal, cons cell is represented with `->` 
+# in Yula, cons cell is represented with `->` 
 1 -> 2 -> 3
 # yes this is the same construct used to represent type of function type
 # designed trait & impl syntax

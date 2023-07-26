@@ -4,7 +4,7 @@ parallization is automatically ensured. I expect this language to be statically
 typed with opt-in dyn type and functional. More info can be found around HVM.
 
 ## Pattern matching
-  There's no assignment in Pal lang, only pattern matching and bindings
+  There's no assignment in Yula lang, only pattern matching and bindings
 
 ## Algebraic effects
   ala. `Result<Ok, Err>`, reference: [Koka](https://koka-lang.github.io/)
@@ -15,7 +15,7 @@ typed with opt-in dyn type and functional. More info can be found around HVM.
 ## Languge is available all the time.
   Take a look at [Lux](https://github.com/LuxLang/lux) language to see their language state is available at runtime.
   Just like in [Common lisp](https://lisp-lang.org/) you're allowed to write code at runtime, you can dump a core image just like in common lisp.
-  I expect the following should be possible in pal langauge.
+  I expect the following should be possible in Yula langauge.
   - send code between machine to execute the code
   - modify the software itself when it's running
   - automatic C-FFI
