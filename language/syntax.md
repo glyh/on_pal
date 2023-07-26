@@ -1,6 +1,10 @@
 ## Classification
 Yula's syntax is strongly influenced by [Rust](https://www.rust-lang.org/).
 
+## References
+
+- An Empirical Investigation into Programming Language Syntax
+
 ## List of readable languages
 
 Here's a list of language I found pretty readable to human:
@@ -28,9 +32,13 @@ Here's a list of language I found pretty readable to human:
 Here's some code that maybe of interest: 
 
 ```
+abc <- input()  # read
+display(abc) # writes
 # Specify the dialect information for this source file, this is similar to racket's #lang tag
-lang
+mod module_name
   use multline_string
+  use_macros my_awesome_macros
+  alias json as j
 end
 
 # Pattern matching:
@@ -56,6 +64,17 @@ a = 3
 1e3 # this can be both int and float
 0x123 # radix 16
 0o123 # radix 8
+
+# Checking type: 
+a is? B # if a is of type B, return true. o.w. false
+# so another syntax sugar we support is binary operators by functions
+
+binop is?(a, b) 
+  ...
+with precedence
+  ...
+end
+
 
 # Strings
 
@@ -336,23 +355,35 @@ end
 5..=6 # std::ops::RangeInclusive
 ..=7  # std::ops::RangeToInclusive
 
+# Try
+check 
+  # may throw
+detect e
+  # on throw
+else 
+  # we're good
+always
+  # finalization
+end
 # Chained Try
 # I want to introduce effect system
 # assert: Result(_, _) -> excepton ()
-try 
+check 
   response = fetch_from_network(resource_id)
   assert(response.network_success)
   value = response.value
-catch e try
+detect e check
   print(e)
   assert(resource_id.in(offline_cache))
   value = offline_cache.at(resource_id)
-catch try
+detect check # ignore the error message and continue next check
   print("Failed to get resource. Use manual value?")
   response = user_input("Resource override: ")
   assert(not response:cancelled)
   value = response:value
 else
   raise Error('Network not available and ID {resource_id} not in offline cache.')
+always
+  # this always get ran
 end
 ```
