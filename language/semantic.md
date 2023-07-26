@@ -82,3 +82,12 @@ I think there's no issue introducing more errors, as "div by 0" is already a run
 
 ## Logic variables
 any unbound variables is treated as a logic variable.
+
+## Division
+
+In Yula, there's 2 operator for integer division. 
+`/!` is the famililar divison operator, yields an error if divide by 0.
+`/` is the safe division operator, yields an Maybe(Int)
+And we have the unwrap symbol `!` which is an alias to the `unjust` function.
+
+Generalize: Any function that yields a maybe can be called with a forced version by postfixing the name of function with !.
