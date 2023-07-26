@@ -365,18 +365,28 @@ else
 always
   # finalization
 end
+
+# Observation: `if` `try`  are isomorphic
+# Proposal: unified `if` and `try`
+
 # Chained Try
 # I want to introduce effect system
 # assert: Result(_, _) -> excepton ()
-check 
+if exp1
+
+else if exp2
+
+else try
   response = fetch_from_network(resource_id)
   assert(response.network_success)
   value = response.value
-detect e check
+catch e try
   print(e)
   assert(resource_id.in(offline_cache))
   value = offline_cache.at(resource_id)
-detect check # ignore the error message and continue next check
+catched try 
+  # ignore the error message and continue next check
+  # actually, after detected, you can use any construct: if, match
   print("Failed to get resource. Use manual value?")
   response = user_input("Resource override: ")
   assert(not response:cancelled)
