@@ -17,7 +17,7 @@ You can definitely argue that is not the language itself, but the architecture o
 
 ## Mission
 
-Misson of pal is really to serve the end user and the developer, and we expect those two group of people highly overlap. To make it easier for end user to become a hacker on the software they are using, we deliberately design the language to be extensible, easy to use, and developer friendly.
+Misson of Yula is really to serve the end user and the developer, and we expect those two group of people highly overlap. To make it easier for end user to become a hacker on the software they are using, we deliberately design the language to be extensible, easy to use, and developer friendly.
 
 ## When?
 
@@ -25,4 +25,4 @@ Well, I'm a newbie in PL-design so expect at least 5 years.
 
 ## How can I participate?
 
-I am more than willing to hear that you are interested in the design phase of Pal language :) Feel free to open an issue and tell me what I can improve on the language!
+I am more than willing to hear that you are interested in the design phase of Yula language :) Feel free to open an issue and tell me what I can improve on the language!

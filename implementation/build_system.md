@@ -1,2 +1,2 @@
 - Reuse some parts from Zig because they have a good build system integrated.
-- Using pal program as a library from Zig is non-goal, because it doesn't make sense.
+- Using Yula program as a library from Zig is non-goal, because it doesn't make sense.
