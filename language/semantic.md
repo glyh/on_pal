@@ -91,3 +91,5 @@ In Yula, there's 2 operator for integer division.
 And we have the unwrap symbol `!` which is an alias to the `unjust` function.
 
 Generalize: Any function that yields a maybe can be called with a forced version by postfixing the name of function with !.
+
+Another numeric tower called PosiInt (positive integers) are introduced. Thus in general case as long as you don't use minus and division, you can safely pass the number as the dividend for `/`, yes `/` is Polymorphic. In this tower only adding and multiplying is allowed.
