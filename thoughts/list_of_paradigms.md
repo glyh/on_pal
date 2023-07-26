@@ -1,0 +1,4 @@
+- Functional
+- Imperative
+- Logic
+- Aspect Oriented
