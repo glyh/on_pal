@@ -9,15 +9,18 @@ In Yula, because we have arbitrary syntax extension, it should be splitted from 
 ```
 mod module_name
   
-  # this is a shortcut for full following section.
+  # this is a shortcut for all of the following.
   compat yula.1
   
   syntax yula_syntax.1
   # the above is shortcut for: 
   # syntax multiline_string, ufcs, etc
+
   semantic yula_semantic.1
   # shortcut for:
   semantic first_class_type
+
+  stdlib yula_std.1
 end
 
 ```
