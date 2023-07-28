@@ -32,6 +32,19 @@ Here's a list of language I found pretty readable to human:
 Here's some code that maybe of interest: 
 
 ```
+# Comments 
+
+# the first char after `#` is not `|` and `_` then it gets identified as single line comment
+# single line comments
+#| 
+Multiline 
+comments
+|#
+
+#_ if true 
+  # this is a AST comment
+end
+
 abc <- input()  # read
 display(abc) # writes
 # Specify the dialect information for this source file, this is similar to racket's #lang tag
