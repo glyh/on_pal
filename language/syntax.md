@@ -42,10 +42,10 @@ mod module_name
 end
 
 # Pattern matching:
-name of Str = "Corvo" # pattern matching, the semantic is similar to that of elixir
-(x of Float, l = [y .. rest] of List(Float)) = (9.0, [9.2, 10, 13])
+name as Str = "Corvo" # pattern matching, the semantic is similar to that of elixir
+(x as Float, l = [y .. rest] as List(Float)) = (9.0, [9.2, 10, 13])
 average = 0.5 * (x + y) # type annotation is optional
-average_works_as_well = 0.5 * (x + y) of Float # type annotation is optional
+average_works_as_well = 0.5 * (x + y) as Float # type annotation is optional
 (list = [first, second .. rest], (uname: uname, fruit)) = ([1, 2, 3, 4], (uname: "Linux", fruit: "Apple"))
 # list == [1, 2, 3, 4], first == 1, second == 2, rest == [3, 4], uname == "Linux", fruit == "Apple"
 
@@ -111,7 +111,7 @@ s =
 :abc
 # `\` is line continuation
 (a: "ads", b: 1, "hell" => :yeah) \
-of Tuple(a: Str, b: Int, "hell" => Keyword)
+as Tuple(a: Str, b: Int, "hell" => Keyword)
 # we have heterogeneous ungroable named tuple(i.e. struct)
 [1, 2, 3, 4] # we have homogeneous growable list 
 (1, "a", True, 4) # we have heterogenious ungrowable tuple
@@ -189,7 +189,7 @@ l.(fn(x) x.at(..) += 1; x end)
 # Note that this is not mutability, it's just rebinding a to a new array
 
 # Mutability:
-counter of Atom(Int) = ref(0) # creates an atom just as in clojure.
+counter as Atom(Int) = ref(0) # creates an atom just as in clojure.
 counter.deref += 1 
 # swaping the atom with selector pattern syntax
 # Or: 
@@ -197,19 +197,23 @@ print(f"{counter.deref()}\n") # dereferencing an atom we get the underlying valu
 swap(counter, fn(x): x + 1) # I need to reassure the colon rule works the same as in elixir
 
 # Function definition: 
-sum = fn(x, y, z): x + y + z of Float -> Float -> Float -> Float
+sum = fn(x, y, z): x + y + z as Float -> Float -> Float -> Float
 # I expect pattern matching to be working on types so there's job to be done lol
 a -> Float -> Float -> b = typeof(sum)
 
+1 as B = 1 # another way of getting the type
+# here I want B to be the logic variable
+# should also be possible via normal pattern matching
+
 # Or
-sum of Float -> Float -> Float -> Float = fn(x, y, z): x + y + z
+sum as Float -> Float -> Float -> Float = fn(x, y, z): x + y + z
 # or (we also make it public in this case) 
 pub sum = fn(x: Float, y: Float, z: Float) Float: x + y + z
 
 # or just:
 fn sum(x, y, z): x + y + z
 
-# vararg version of sum, along with pattern matching
+# vararg version as sum, along with pattern matching
 # `...` is the shorthand for `.. ...`, its value depends on the context
 # if `...` is inside a pattern, it means `.. ...`
 # o.w. it's just a binded value
@@ -228,7 +232,7 @@ end
 [_ .. rest] = [1, 2, 3, 4] # rest = [2, 3, 4]
 
 # `?abc` requires compiler to query the type of the hole
-?abc = 1 # compiler will yield: ?abc of Int 
+?abc = 1 # compiler will yield: ?abc as Int 
 
 # the compiler prevents read from `_` and `?abc` 
 # the compiler prevents write to `...`
@@ -239,7 +243,7 @@ sum(4, z: 3, y: 1) # yields 8, note that positional arguments must appear before
 4.sum(3, 1) # yields 8
 
 # Partial application
-4.sum(3) of Float -> Float
+4.sum(3) as Float -> Float
 # BTW this function is actually still polymorhic because it's vararg, but we can 
 # coerce it to a specific type
 4.sum(3)(1) # yields 8
@@ -268,7 +272,7 @@ end
 # WARN: we don't allow omitting (), so we can distinguish function call from functions.
 
 # $ mean an anonymous function in expression, just like in clojure:
-$.sum(3, 4) of (float ...).to(float)
+$.sum(3, 4) as Float ... -> Float
 # we can have $1, $2 ... for positional arguments
 # TODO: design a workable type signature for varargs
 
@@ -281,7 +285,7 @@ $.sum(3, 4) of (float ...).to(float)
 if (a = b = c).ok? 
   # pattern matches! 
   # you can call a function without parens! (only works for dot notation)
-  # ok? of Result(_, _).to(Bool)
+  # ok? as Result(_, _).to(Bool)
   3 + 4
 elif c == d
   9 * 8
