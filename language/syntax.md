@@ -359,6 +359,10 @@ end
 5..=6 # std::ops::RangeInclusive
 ..=7  # std::ops::RangeToInclusive
 
+# Type corercion and type checking
+a as b # cast a to type b, also used as type annotation
+a is b # check whether a is of type b
+
 # Try
 check 
   # may throw
