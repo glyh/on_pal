@@ -10,30 +10,28 @@ In Yula, because we have arbitrary syntax extension, it should be splitted from 
 mod module_name
   
   # this is a shortcut for all of the following.
-  compat yula.1
+  lang yula.1
   
-  syntax yula_syntax.1
-  # the above is shortcut for: 
-  # syntax multiline_string, ufcs, etc
-
-  semantic yula_semantic.1
-  # shortcut for:
-  semantic first_class_type
-
-  stdlib yula_std.1
 end
 
 ```
 
-Thus, no guarantee of semantic compatibility and syntax compatibility exists. This free the language from the issue of finally growing into a junk pile.
+Yula language follows [semver](https://semver.org/): `a.b.c`:
 
-Yula 's verson number is of form `a.b.c.d`, where:
-- `a` is the major incompatible semantic number.
-- `b` is the major incompatible syntax number.
-- `c` is the feature number.
-- `d` is the fix number.
+> Given a version number MAJOR.MINOR.PATCH, increment the:
 
-In general, a script should stick to `a.b.c` and the compiler uses the highest available `d`
+> - MAJOR version when you make incompatible API changes
+> - MINOR version when you add functionality in a backward compatible manner
+> - PATCH version when you make backward compatible bug fixes
+
+> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+In general, a script should stick to `a.b` and the compiler uses the highest available `c`
 
 This is just a proposal, I have no clue how it would workout. But what I'm implying here is that we should admit the limitation of our foresight and there's simply stuff we can't foresee. The `compat` mechanic is just a safety net, preventing us going into the dead end languages like C++ reaches.
 
+It should be note that, semvers are just alias. Internally, the language is rolling released, and some released hash is tagged with a semver.
+
+Thus, there's no compatibility issues. The limitation of this approach is that you can't backport.
+
+I don't know if the lockfile approach is also good enough. It worths a look.
