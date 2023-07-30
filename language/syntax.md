@@ -277,7 +277,7 @@ abc.def() # a qualified call
 # `ok?` is defined as below:
 # _ means we don't care the thing within in pattern matching
 fn ok?(r: Result(_, _)) Bool do
-  match r do
+  case r
     Ok(_) -> True
     Err(_) -> False
   end
