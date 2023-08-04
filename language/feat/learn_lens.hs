@@ -1,3 +1,4 @@
+-- https://williamyaoh.com/posts/2019-04-25-lens-exercises.html
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 
@@ -36,6 +37,9 @@ user1 = User
 -- forall f. Functor f => (a -> f b) -> s -> f t
 
 -- toy implementation of .~
+-- `.~` is the field updater. For example:
+-- user1 & metadata.numLogins .~ 0 
+-- This will update the `metadata.numsLogins` field of `user1` to `0`
 infixr 4 .~~
 (.~~) :: 
   ((a -> Identity b) -> s -> Identity t)
@@ -47,6 +51,10 @@ infixr 4 .~~
   = runIdentity (l (\_ -> return b) s)
 
 -- toy implementation of %~
+-- `%~` is the field mapper. For example:
+-- user1 & metadata.associatedIPs %~ ("192.168.0.2" :)
+-- This will update the metadata.associatedIPs by applying the function `("192.168.0.2" :)` to it
+
 infixr 4 %~~
 (%~~) :: 
     ((a -> Identity b) -> s -> Identity t)
@@ -54,8 +62,12 @@ infixr 4 %~~
     -> s
     -> t
 
+-- l is the lense, f is the applied function, s is the data structure.
 (%~~) l f s 
   = runIdentity (l (return . f) s)
+
+-- `^.` is the filed accessor. For example: 
+-- user1 ^. numLogins.metadata will take the numLogins.metadata field from user1
 
 infixl 8 ^.~
 (^.~) :: 
@@ -66,6 +78,6 @@ infixl 8 ^.~
 (^.~) s l
   = getConst (l (\a -> Const a) s)
 
-name' :: Functor f => (Text -> f Text) -> User -> f User
+name' :: Functor m => (Text -> m Text) -> User -> m User
 name' f u@User{_name} = 
   u <$ (f _name)

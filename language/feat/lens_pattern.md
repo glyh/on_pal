@@ -12,9 +12,9 @@ Predicate a = a -> Bool
 Say we have:
 <!-- a data structure `d`, and an interested field `f`, a lense `l` of type `Lens f d`, and a predicate `p` of type `` -->
 ```haskell
-d :: D
-f :: F
-l :: Lens F D
+d :: D -- the data structure of interest
+f :: F -- the field of interest
+l :: Lens F D -- the lens
 p1 :: Predicate F
 p2 :: Predicate F
 ```
