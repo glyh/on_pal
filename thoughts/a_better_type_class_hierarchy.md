@@ -1,0 +1,2 @@
+- https://wiki.haskell.org/Typeclassopedia
+- https://felixspringer.xyz/homepage/blog/beyondTypeclassopedia
