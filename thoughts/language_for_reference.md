@@ -1,5 +1,6 @@
 - Curry: https://www.informatik.uni-kiel.de/~mh/curry/curry-lang.org/
 - Racket: https://racket-lang.org/
 - Haskell: https://www.haskell.org/
-- Tablam: https://tablam.org/
+- Tablam: https://tablam.org/ 
 - Agda: https://tablam.org/ dependent type with type aware macro
+- Logtalk: https://github.com/LogtalkDotOrg/logtalk3 obj oriented mixed with logic programming 
