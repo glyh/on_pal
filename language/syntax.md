@@ -216,6 +216,7 @@ a -> Float -> Float -> b = typeof(sum)
 
 1 as B = 1 # another way of getting the type
 # here I want B to be the logic variable
+# Note that any variables that only contains upcase letters are logical variables.
 # should also be possible via normal pattern matching
 
 # Or
