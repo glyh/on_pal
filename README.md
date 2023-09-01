@@ -8,13 +8,19 @@
 (this logo is temporary, help from ui designers and calligraphers wanted!)
 
 ## Quick Pitch
-- [ ] A **lazy** **statically-typed** **functional** language
+- [ ] A **lazy** **statically-typed** **functional logic** language
 - [ ] **Tight-integration** with [Zig](https://ziglang.org/)/C
 - [ ] The language is **always available**, just like Smalltalk and Lisp
-- [ ] Type system that **doesn't get in your way** while being **flexible enough**
+- [ ] Type system that **doesn't get in your way** while being **expressive enough**
+    - [ ] CuTT + substructural
+        * [ ] ordered, linear, affine, & relevent types
+        * [ ] dependent types
+        * [ ] \(higher) inductive types
+        * [ ] cubical type theory basis, so you'd be working in homotopy type theory for any proof stuff
+- [ ] Verification aware (static precondition & post condition system)
 - [ ] Parallelization for **free**
 - Prioritization: Correctness > **Readability** > **Extensibility** > **Consistency** > Performance > Predictability
-- Inspired by [Haskell](https://www.haskell.org/), [Common Lisp](https://lisp-lang.org/), [Racket](https://racket-lang.org/), [Clojure](https://clojure.org/), [Elixir](https://elixir-lang.org/), [Rust](https://www.rust-lang.org/), 
+- Inspired by [Haskell](https://www.haskell.org/), [Common Lisp](https://lisp-lang.org/), [Racket](https://racket-lang.org/), [Clojure](https://clojure.org/), [Elixir](https://elixir-lang.org/), [Rust](https://www.rust-lang.org/), [Dafny](https://github.com/dafny-lang/dafny))
 
 ## Rationale: Why yet another langauge
 
