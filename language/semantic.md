@@ -12,6 +12,10 @@ typed with opt-in dyn type and functional. More info can be found around HVM.
 ## Dependent Type
   Types should be first class citizen, reference: [Idris](https://www.idris-lang.org/). As you see I'm trying to include every programming concept in this language so they are programmable by the programmer, you. That's how we achieve extensibility.
 
+## More complicated type theory
+
+I need to take a look in ITT(interaction type theory) for performant type checking
+
 ## Languge is available all the time.
   Take a look at [Lux](https://github.com/LuxLang/lux) language to see their language state is available at runtime.
   Just like in [Common lisp](https://lisp-lang.org/) you're allowed to write code at runtime, you can dump a core image just like in common lisp.
@@ -59,3 +63,7 @@ Generalize: Any function that yields a maybe can be called with a forced version
 
 ## Effect Tier
 FFI should have a different Effect Tier compared to IO. FFI may cause the program to panic with, for example, div-by-0 errors.
+
+## Polymorphic blocks
+each block of form `do .. end` are polymorphic: they can have 2 type:
+`() with eff` or `struct(keyword, any) with eff`, i.e. we may export the definition from the blocks, but we're free to throw the definition away as well.
