@@ -26,6 +26,7 @@ Here's a list of language I found pretty readable to human:
 - First class array, table(hashmap, use this term so it doesn't clash with the function map), keywords(as in clojure)
 - UFCS
 - List comprehension & for yield(not yet)
+- whitespace insignificant
 
 ## A taste of Yula
 
@@ -312,11 +313,11 @@ end
 
 # and the above is actually this, because do's are omitted:
 
-if (a = b = c).ok? do 
+if (a = b = c).ok?
   3 + 4
-else: if c == d do 
+else: if c == d
   9 * 8
-else do 
+else
   "a" ++ "b"
 end
 
