@@ -1,4 +1,41 @@
-## [HVM](https://github.com/HigherOrderCO/HVM)
+## Scoping Rules
+
+For conciseness we could have forwarding defiition, i.e.
+```
+a = b + 1
+b = 1
+```
+But this makes reading code hard, so it's not really worth it, instead we just use the forward `declare`:
+
+```
+declare b
+a = b + 1
+b = 1
+```
+Also for self recursing bindings:
+```
+rec a = fn (x)
+  if x == 0
+    1
+  else
+    a(x - 1) + a(x - 2)
+end
+```
+Which is equivalent to:
+
+```
+fn a(x)
+  if x == 0
+    1
+  else
+    a(x - 1) + a(x - 2)
+  end
+end
+```
+
+Also note that, `rec pat = exp` is but a sugar for `pat = fix(fn (pat): exp)`
+
+## (Postponed) [HVM](https://github.com/HigherOrderCO/HVM)
 I notice that there's a functional VM called HVM, which is pretty interesting as 
 parallization is automatically ensured. I expect this language to be statically 
 typed with opt-in dyn type and functional. More info can be found around HVM.
@@ -11,6 +48,10 @@ typed with opt-in dyn type and functional. More info can be found around HVM.
 
 ## Dependent Type
   Types should be first class citizen, reference: [Idris](https://www.idris-lang.org/). As you see I'm trying to include every programming concept in this language so they are programmable by the programmer, you. That's how we achieve extensibility.
+
+## Impredicative Polymorphism
+
+`(forall a. a -> a) (forall b. b -> b)` Evaluates to `(forall b. b -> b)`
 
 ## More complicated type theory
 
